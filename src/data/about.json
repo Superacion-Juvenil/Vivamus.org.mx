@@ -1,0 +1,54 @@
+{
+  "whatIs": {
+    "title": "¿Qué es Vivamus-Merco?",
+    "description": "Una carrera familiar para promover los valores de una manera divertida. Es una experiencia de fiesta donde voluntarios de todas las edades animan con porras durante todo el recorrido. En Vivamus-Merco se vive un ambiente de compañerismo, motivación y alegría."
+  },
+  "history": {
+    "title": "Nuestra Historia",
+    "description": "Todo comenzó en 2009 cuando Superación Juvenil cumplía 30 años de labor social y deseaba encontrar una forma creativa de festejar con todos sus jóvenes y sus familias. Como resultado, nació una carrera que promueve los valores entre la juventud y hace un llamado al resto de las familias regiomontanas a seguir viviendo con valores.",
+    "editions": 15,
+    "firstEdition": 2009,
+    "consolidation": "A lo largo de 15 ediciones, Vivamus-Merco se ha posicionado como una de las carreras favoritas entre la sociedad regiomontana."
+  },
+  "cause": {
+    "title": "La Causa",
+    "description": "Los fondos recaudados apoyan los programas de Superación Juvenil ABP, una comunidad que forma líderes juveniles de impacto social. Con más de 45 años de trayectoria y más de 100,000 jóvenes impactados, SJ trabaja en:",
+    "programs": [
+      "Formación de adolescentes (13-17 años)",
+      "Acompañamiento a universitarios (18-25 años)",
+      "Programa de voluntariado \"En la Brecha\""
+    ]
+  },
+  "mission": {
+    "title": "Misión del Evento",
+    "description": "Promover los valores en la sociedad a través del evento deportivo y familiar más animado de Nuevo León."
+  },
+  "vision": {
+    "title": "Visión del Evento",
+    "description": "Ser el evento número uno en el estado de Nuevo León para las familias mexicanas, caracterizado por su creatividad y animación, que inspira además a otros a unirse a la promoción de valores."
+  },
+  "superacionJuvenil": {
+    "name": "Superación Juvenil ABP",
+    "mission": "Formar líderes juveniles de impacto social que impulsen una sociedad ética.",
+    "vision": "Una sociedad ética impulsada por nuevos líderes juveniles.",
+    "yearsOfService": 45,
+    "youthsImpacted": 100000,
+    "problematic": "Los diferentes ambientes en los que se desenvuelve el joven proveen de pocos elementos para favorecer el vivir una vida plena con valores éticos.",
+    "beneficiaries": {
+      "direct": "Jóvenes de 13 a 25 años (secundaria a universidad)",
+      "indirect": "Familias, comunidades escolares y sociedad en general"
+    },
+    "methodology": [
+      "Invitar — A una comunidad con valores",
+      "Acompañar — Al desarrollo íntegro del joven (mínimo 3 encuentros semanales)",
+      "Enviar — Al impacto social"
+    ],
+    "areas": [
+      "Hábitos saludables",
+      "Familia",
+      "Estudios",
+      "Espiritualidad/trascendencia",
+      "Compromiso e impacto social"
+    ]
+  }
+}

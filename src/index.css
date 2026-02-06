@@ -1,0 +1,152 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Vivamus 2026 - Youth inspired color palette */
+@layer base {
+  :root {
+    --vivamus-sky: #4CC9F0;
+    --vivamus-pink: #F72585;
+    --vivamus-yellow: #FFD166;
+    --vivamus-teal: #00CCCC;
+    --vivamus-orange: #FF6600;
+    --vivamus-green: #00CC00;
+    --vivamus-white: #FFFFFF;
+    --vivamus-black: #000000;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-white text-gray-900 font-sans antialiased;
+  }
+}
+
+/* Hero background with diagonal color bands like the poster */
+.vivamus-hero-bg {
+  background: linear-gradient(
+    165deg,
+    #4CC9F0 0%,
+    #4CC9F0 35%,
+    #FFFFFF 35%,
+    #FFFFFF 38%,
+    #FFD166 38%,
+    #FFD166 52%,
+    #FFFFFF 52%,
+    #FFFFFF 55%,
+    #F72585 55%,
+    #F72585 100%
+  );
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle texture overlay */
+.vivamus-hero-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: 
+    radial-gradient(circle at 20% 80%, rgba(255,255,255,0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(255,255,255,0.1) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+/* Alternative striped background for sections */
+.vivamus-stripes-bg {
+  background: linear-gradient(
+    165deg,
+    #4CC9F0 0%,
+    #4CC9F0 40%,
+    #FFD166 40%,
+    #FFD166 60%,
+    #F72585 60%,
+    #F72585 100%
+  );
+  position: relative;
+}
+
+/* Gradient accent for cards and elements */
+.vivamus-gradient {
+  background: linear-gradient(135deg, #4CC9F0 0%, #F72585 100%);
+}
+
+.vivamus-gradient-alt {
+  background: linear-gradient(135deg, #FFD166 0%, #F72585 100%);
+}
+
+/* Section backgrounds with subtle color tints */
+.section-sky {
+  background: linear-gradient(180deg, #e6f7fb 0%, #ffffff 100%);
+}
+
+.section-pink {
+  background: linear-gradient(180deg, #fce4ec 0%, #ffffff 100%);
+}
+
+.section-yellow {
+  background: linear-gradient(180deg, #fff8e1 0%, #ffffff 100%);
+}
+
+/* Animated gradient border */
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animated-border {
+  background: linear-gradient(90deg, #4CC9F0, #F72585, #FFD166, #4CC9F0);
+  background-size: 300% 300%;
+  animation: gradient-shift 4s ease infinite;
+}
+
+/* Button styles */
+.btn-vivamus-primary {
+  @apply bg-white text-gray-900 px-8 py-4 rounded-full text-xl font-bold 
+         transition-all duration-300 border-3 border-black
+         hover:bg-vivamus-yellow hover:scale-105 hover:shadow-xl;
+}
+
+.btn-vivamus-secondary {
+  @apply bg-transparent border-3 border-white text-white px-8 py-4 rounded-full 
+         text-xl font-bold transition-all duration-300
+         hover:bg-white/20 hover:scale-105;
+}
+
+/* Card hover effects */
+.card-hover {
+  @apply transition-all duration-300 hover:shadow-xl hover:-translate-y-1;
+}
+
+/* Youth-inspired decorative elements */
+.decoration-dots::before {
+  content: '';
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  background: radial-gradient(circle, #FFD166 2px, transparent 2px);
+  background-size: 20px 20px;
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #4CC9F0 0%, #F72585 100%);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #3BA8CC 0%, #D61F6F 100%);
+}

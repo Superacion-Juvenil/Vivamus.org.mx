@@ -1,0 +1,46 @@
+{
+  "images": [
+    {
+      "id": 1,
+      "url": "https://via.placeholder.com/800x600/0ea5e9/ffffff?text=Vivamus-Merco+2024",
+      "description": "Edición 2024 - Línea de salida",
+      "year": 2024,
+      "edition": "15ª"
+    },
+    {
+      "id": 2,
+      "url": "https://via.placeholder.com/800x600/ef4444/ffffff?text=Familia+Corriendo",
+      "description": "Familias disfrutando la carrera",
+      "year": 2024,
+      "edition": "15ª"
+    },
+    {
+      "id": 3,
+      "url": "https://via.placeholder.com/800x600/10b981/ffffff?text=Voluntarios+Animando",
+      "description": "Voluntarios animando el recorrido",
+      "year": 2024,
+      "edition": "15ª"
+    },
+    {
+      "id": 4,
+      "url": "https://via.placeholder.com/800x600/f59e0b/ffffff?text=Premiacion",
+      "description": "Ceremonia de premiación",
+      "year": 2024,
+      "edition": "15ª"
+    },
+    {
+      "id": 5,
+      "url": "https://via.placeholder.com/800x600/8b5cf6/ffffff?text=Zona+de+Convivencia",
+      "description": "Zona de convivencia familiar",
+      "year": 2024,
+      "edition": "15ª"
+    },
+    {
+      "id": 6,
+      "url": "https://via.placeholder.com/800x600/ec4899/ffffff?text=Medallas+Finisher",
+      "description": "Entrega de medallas finisher",
+      "year": 2024,
+      "edition": "15ª"
+    }
+  ]
+}

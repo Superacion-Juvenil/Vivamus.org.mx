@@ -1,0 +1,34 @@
+{
+  "faqs": [
+    {
+      "id": 1,
+      "question": "¿Dónde recojo mi kit?",
+      "answer": "La entrega de kits se realizará en puntos designados que serán comunicados vía correo electrónico. También habrá puntos de entrega en tiendas Merco seleccionadas."
+    },
+    {
+      "id": 2,
+      "question": "¿Puedo participar con mi familia?",
+      "answer": "¡Sí! Vivamus-Merco es un evento familiar. Tenemos categorías para todas las edades desde los 6 años."
+    },
+    {
+      "id": 3,
+      "question": "¿Qué pasa si no puedo asistir el día del evento?",
+      "answer": "Contamos con modalidad virtual. Podrás correr tu distancia en cualquier lugar y subir tu evidencia para recibir tu medalla."
+    },
+    {
+      "id": 4,
+      "question": "¿A dónde van los fondos recaudados?",
+      "answer": "El 100% de los fondos netos se destinan a los programas de formación de Superación Juvenil ABP, beneficiando a miles de jóvenes en Nuevo León."
+    },
+    {
+      "id": 5,
+      "question": "¿Cómo me inscribo?",
+      "answer": "Puedes inscribirte directamente en esta página web o en los puntos de inscripción físicos en tiendas Merco participantes."
+    },
+    {
+      "id": 6,
+      "question": "¿El recorrido está certificado?",
+      "answer": "Sí, contamos con certificación oficial y sistema de cronometraje profesional."
+    }
+  ]
+}

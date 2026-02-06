@@ -1,0 +1,23 @@
+{
+  "email": "vivamus@superacionjuvenil.org",
+  "phone": "(81) 1352 5333",
+  "address": {
+    "street": "Loma Redonda #1517",
+    "colony": "Col. Loma Larga",
+    "city": "Monterrey",
+    "state": "Nuevo León",
+    "postalCode": "64710",
+    "full": "Loma Redonda #1517, Col. Loma Larga, Monterrey, N.L. C.P. 64710"
+  },
+  "socialMedia": {
+    "facebook": {
+      "handle": "@VivamusMTY",
+      "url": "https://www.facebook.com/VivamusMTY"
+    },
+    "instagram": {
+      "handle": "@vivamus_mty",
+      "url": "https://www.instagram.com/vivamus_mty"
+    }
+  },
+  "officeHours": "Lunes a Viernes: 9:00 AM - 6:00 PM"
+}

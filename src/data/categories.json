@@ -1,0 +1,44 @@
+{
+  "categories": [
+    {
+      "id": "infantil",
+      "name": "Infantil",
+      "ageRange": "6-12 años",
+      "minAge": 6,
+      "maxAge": 12,
+      "distances": ["5k"]
+    },
+    {
+      "id": "juvenil",
+      "name": "Juvenil",
+      "ageRange": "13-17 años",
+      "minAge": 13,
+      "maxAge": 17,
+      "distances": ["5k", "10k"]
+    },
+    {
+      "id": "libre",
+      "name": "Libre",
+      "ageRange": "18-39 años",
+      "minAge": 18,
+      "maxAge": 39,
+      "distances": ["5k", "10k"]
+    },
+    {
+      "id": "master",
+      "name": "Máster",
+      "ageRange": "40-49 años",
+      "minAge": 40,
+      "maxAge": 49,
+      "distances": ["5k", "10k"]
+    },
+    {
+      "id": "veteranos",
+      "name": "Veteranos",
+      "ageRange": "50+ años",
+      "minAge": 50,
+      "maxAge": null,
+      "distances": ["5k", "10k"]
+    }
+  ]
+}

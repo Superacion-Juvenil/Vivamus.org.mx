@@ -1,0 +1,28 @@
+{
+  "phases": [
+    {
+      "id": "early-bird",
+      "name": "Early Bird",
+      "price": 350,
+      "currency": "MXN",
+      "validity": "Primeras 4 semanas",
+      "active": true
+    },
+    {
+      "id": "regular",
+      "name": "Precio Regular",
+      "price": 450,
+      "currency": "MXN",
+      "validity": "Hasta 2 semanas antes",
+      "active": false
+    },
+    {
+      "id": "last-chance",
+      "name": "Última oportunidad",
+      "price": 550,
+      "currency": "MXN",
+      "validity": "Última semana",
+      "active": false
+    }
+  ]
+}

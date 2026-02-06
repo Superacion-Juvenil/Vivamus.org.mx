@@ -1,0 +1,61 @@
+{
+  "mainSponsor": {
+    "name": "Merco",
+    "description": "Cadena de supermercados mexicana con fuerte presencia en Monterrey y Nuevo León, reconocida por su compromiso con la calidad, frescura y precios accesibles para las familias regiomontanas.",
+    "logo": "/logos/merco.png",
+    "website": "https://www.merco.com.mx"
+  },
+  "sponsorLevels": [
+    {
+      "level": "Diamante",
+      "investment": "$150,000+ MXN",
+      "minInvestment": 150000,
+      "benefits": [
+        "Logo en playera",
+        "Arco de meta",
+        "Naming de distancia",
+        "Stand premium en expo"
+      ]
+    },
+    {
+      "level": "Oro",
+      "investment": "$80,000 - $149,999 MXN",
+      "minInvestment": 80000,
+      "maxInvestment": 149999,
+      "benefits": [
+        "Logo en playera",
+        "Stand en expo",
+        "Menciones en redes"
+      ]
+    },
+    {
+      "level": "Plata",
+      "investment": "$40,000 - $79,999 MXN",
+      "minInvestment": 40000,
+      "maxInvestment": 79999,
+      "benefits": [
+        "Logo en materiales impresos",
+        "Stand en expo"
+      ]
+    },
+    {
+      "level": "Bronce",
+      "investment": "$15,000 - $39,999 MXN",
+      "minInvestment": 15000,
+      "maxInvestment": 39999,
+      "benefits": [
+        "Logo en página web",
+        "Mención en redes"
+      ]
+    },
+    {
+      "level": "Aliado",
+      "investment": "Especie",
+      "benefits": [
+        "Producto para kit o hidratación",
+        "Menciones"
+      ]
+    }
+  ],
+  "otherSponsors": []
+}
