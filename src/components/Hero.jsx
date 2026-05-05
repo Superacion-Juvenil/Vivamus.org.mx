@@ -115,20 +115,6 @@ export default function Hero() {
         </motion.div>
       </div>
 
-      {/* Scroll indicator */}
-      <motion.button
-        onClick={() => scrollTo('nosotros')}
-        animate={{ y: [0, 8, 0] }}
-        transition={{ repeat: Infinity, duration: 1.6, ease: 'easeInOut' }}
-        className="absolute bottom-6 left-1/2 -translate-x-1/2 cursor-pointer focus:outline-none"
-        aria-label="Ir a la siguiente sección"
-      >
-        <div className="w-8 h-8 border-3 border-black rounded-full bg-white flex items-center justify-center hover:bg-yellow transition-colors duration-150">
-          <svg className="w-4 h-4 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M19 9l-7 7-7-7" />
-          </svg>
-        </div>
-      </motion.button>
     </section>
   );
 }
