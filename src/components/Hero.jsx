@@ -42,11 +42,13 @@ export default function Hero() {
           animate={{ scale: 1, opacity: 1 }}
           transition={{ duration: 0.6, ease: [0.34, 1.56, 0.64, 1] }}
         >
-          <img
-            src="/logo-vivamus.png"
-            alt="Carrera VIVAMUS Merco 2026"
-            className="w-64 sm:w-80 md:w-96 h-auto mx-auto drop-shadow-[4px_4px_0_rgba(0,0,0,0.25)]"
-          />
+          <div className="w-64 sm:w-80 md:w-96 mx-auto rounded-3xl overflow-hidden shadow-neo-lg">
+            <img
+              src="/logo-vivamus.png"
+              alt="Carrera VIVAMUS Merco 2026"
+              className="w-full h-auto block"
+            />
+          </div>
         </motion.div>
 
         {/* Tagline */}

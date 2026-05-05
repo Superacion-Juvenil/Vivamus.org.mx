@@ -41,11 +41,9 @@ export default function Header() {
           className="flex items-center focus:outline-none"
           aria-label="Ir al inicio"
         >
-          <img
-            src="/logo-vivamus.png"
-            alt="VIVAMUS"
-            className="h-10 w-auto transition-transform duration-200 hover:scale-105"
-          />
+          <div className="h-10 w-10 rounded-xl overflow-hidden transition-transform duration-200 hover:scale-105 border-2 border-black/10">
+            <img src="/logo-vivamus.png" alt="VIVAMUS" className="w-full h-full object-cover" />
+          </div>
         </button>
 
         {/* Desktop nav */}
