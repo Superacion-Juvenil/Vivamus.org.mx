@@ -1,108 +1,130 @@
-import { useEffect, useState } from 'react';
-import { getFAQ } from '../services/dataService';
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import SectionDivider from './ui/SectionDivider';
+import FloatingDecorators from './ui/FloatingDecorators';
+import faqData from '../data/faq.json';
 
-const FAQ = () => {
-  const [faqData, setFaqData] = useState(null);
-  const [openIndex, setOpenIndex] = useState(null);
-
-  useEffect(() => {
-    getFAQ().then(setFaqData).catch(console.error);
-  }, []);
-
-  const toggleQuestion = (index) => {
-    setOpenIndex(openIndex === index ? null : index);
-  };
-
-  if (!faqData) {
-    return (
-      <section id="faq" className="py-20 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="text-center">Cargando...</div>
-        </div>
-      </section>
-    );
-  }
-
-  return (
-    <section id="faq" className="py-20 bg-white">
-      <div className="container mx-auto px-4 max-w-3xl">
-        {/* Section Header */}
-        <div className="text-center mb-12">
-          <span className="inline-block bg-vivamus-yellow text-black px-4 py-1 rounded-full text-sm font-bold mb-4 transform rotate-1">
-            RESOLVEMOS TUS DUDAS
-          </span>
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900">
-            Preguntas Frecuentes
-          </h2>
-        </div>
-
-        <div className="space-y-4">
-          {faqData.faqs.map((faq, index) => (
-            <div
-              key={faq.id}
-              className={`bg-white rounded-2xl border-3 border-black overflow-hidden transition-all ${
-                openIndex === index ? 'shadow-vivamus' : 'shadow-vivamus-sm'
-              }`}
-            >
-              <button
-                onClick={() => toggleQuestion(index)}
-                className="w-full px-6 py-5 text-left flex items-center justify-between hover:bg-gray-50 transition-colors"
-              >
-                <span className="font-bold text-gray-900 pr-4">
-                  {faq.question}
-                </span>
-                <div className={`p-2 rounded-xl transition-all ${
-                  openIndex === index ? 'bg-vivamus-pink text-white rotate-180' : 'bg-vivamus-sky/20 text-vivamus-sky'
-                }`}>
-                  <svg
-                    className="w-5 h-5"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M19 9l-7 7-7-7"
-                    />
-                  </svg>
-                </div>
-              </button>
-              <div className={`overflow-hidden transition-all duration-300 ${
-                openIndex === index ? 'max-h-96' : 'max-h-0'
-              }`}>
-                <div className="px-6 py-5 bg-vivamus-sky/5 border-t-2 border-gray-100">
-                  <p className="text-gray-700 leading-relaxed">{faq.answer}</p>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* Contact CTA */}
-        <div className="mt-12 vivamus-gradient-alt rounded-3xl p-8 md:p-10 text-center text-white border-3 border-black shadow-vivamus">
-          <div className="bg-white/20 w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4 backdrop-blur-sm">
-            <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-            </svg>
-          </div>
-          <h3 className="text-2xl font-bold mb-4">
-            ¿Tienes más preguntas?
-          </h3>
-          <p className="opacity-95 mb-6 max-w-md mx-auto">
-            No dudes en contactarnos, estaremos felices de ayudarte
-          </p>
-          <a
-            href="mailto:vivamus@superacionjuvenil.org"
-            className="inline-block bg-white text-vivamus-pink px-8 py-3 rounded-full font-bold hover:bg-gray-100 border-2 border-black shadow-vivamus-sm transition-all hover:scale-105"
-          >
-            Contáctanos
-          </a>
-        </div>
-      </div>
-    </section>
-  );
+const fadeUp = {
+  initial: { opacity: 0, y: 40 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true, margin: '-60px' },
+  transition: { duration: 0.45, ease: 'easeOut' },
 };
 
-export default FAQ;
+// Remove the virtual-only FAQ item (index 2 about not being able to attend)
+const faqs = faqData.faqs.filter((f) => f.id !== 3);
+
+export default function FAQ() {
+  const [open, setOpen] = useState(null);
+
+  const toggle = (id) => setOpen(open === id ? null : id);
+
+  return (
+    <>
+      <SectionDivider color="#33B9E5" direction="down" height={60} />
+      <section
+        id="faq"
+        className="relative py-16 overflow-hidden"
+        style={{ background: '#33B9E5' }}
+      >
+        <FloatingDecorators colors={['#F72585', '#FFD700', '#fff', '#000', '#F72585', '#FFD700', '#fff', '#009B9B']} />
+
+        <div className="relative z-10 max-w-3xl mx-auto px-4">
+
+          {/* Heading */}
+          <motion.div {...fadeUp} className="text-center mb-10">
+            <span className="inline-block font-bold text-xs uppercase tracking-widest px-4 py-1 rounded-full border-3 border-black mb-4 bg-black text-white">
+              DUDAS
+            </span>
+            <h2 className="font-display text-4xl sm:text-5xl md:text-6xl text-black">
+              ¿Tienes dudas?
+            </h2>
+          </motion.div>
+
+          {/* Accordion */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ staggerChildren: 0.08 }}
+            className="space-y-3 mb-10"
+          >
+            {faqs.map((faq, i) => {
+              const isOpen = open === faq.id;
+              return (
+                <motion.div
+                  key={faq.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.07, duration: 0.35 }}
+                  className="rounded-2xl border-3 border-black overflow-hidden"
+                  style={{ boxShadow: isOpen ? '4px 4px 0 #000' : '2px 2px 0 #000' }}
+                >
+                  <button
+                    onClick={() => toggle(faq.id)}
+                    className="w-full flex items-center justify-between px-5 py-4 text-left transition-colors duration-150 min-h-[56px]"
+                    style={{ background: isOpen ? '#000' : '#fff' }}
+                    aria-expanded={isOpen}
+                  >
+                    <span
+                      className="font-bold text-base pr-4 leading-snug"
+                      style={{ color: isOpen ? '#fff' : '#000' }}
+                    >
+                      {faq.question}
+                    </span>
+                    <motion.span
+                      animate={{ rotate: isOpen ? 45 : 0 }}
+                      transition={{ duration: 0.2 }}
+                      className="font-display text-2xl shrink-0"
+                      style={{ color: isOpen ? '#FFD700' : '#000' }}
+                    >
+                      +
+                    </motion.span>
+                  </button>
+
+                  <AnimatePresence initial={false}>
+                    {isOpen && (
+                      <motion.div
+                        key="answer"
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: 'auto', opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.25, ease: 'easeInOut' }}
+                        className="overflow-hidden"
+                      >
+                        <div className="px-5 py-4 border-t-3 border-black bg-white">
+                          <p className="text-gray-800 text-sm leading-relaxed font-medium">
+                            {faq.answer}
+                          </p>
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </motion.div>
+              );
+            })}
+          </motion.div>
+
+          {/* CTA */}
+          <motion.div
+            {...fadeUp}
+            className="neo-card-lg rounded-2xl p-6 sm:p-8 bg-white text-center"
+          >
+            <p className="font-bold text-black text-base mb-4">
+              ¿Más preguntas? ¡Escríbenos!
+            </p>
+            <a
+              href="mailto:vivamus@superacionjuvenil.org"
+              className="inline-block font-bold text-white px-8 py-3 rounded-full border-3 border-black shadow-neo transition-all duration-150 hover:translate-x-1 hover:translate-y-1 hover:shadow-none active:translate-x-1 active:translate-y-1 active:shadow-none"
+              style={{ background: '#F72585' }}
+            >
+              vivamus@superacionjuvenil.org →
+            </a>
+          </motion.div>
+        </div>
+      </section>
+      <SectionDivider color="#33B9E5" direction="up" height={60} />
+    </>
+  );
+}

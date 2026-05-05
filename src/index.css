@@ -2,17 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Vivamus 2026 - Youth inspired color palette */
 @layer base {
   :root {
-    --vivamus-sky: #4CC9F0;
-    --vivamus-pink: #F72585;
-    --vivamus-yellow: #FFD166;
-    --vivamus-teal: #00CCCC;
-    --vivamus-orange: #FF6600;
-    --vivamus-green: #00CC00;
-    --vivamus-white: #FFFFFF;
-    --vivamus-black: #000000;
+    --sky: #33B9E5;
+    --pink: #F72585;
+    --yellow: #FFD700;
+    --teal: #009B9B;
+    --merco-red: #DD2200;
+    --merco-green: #44AA44;
   }
 
   html {
@@ -22,131 +19,107 @@
   body {
     @apply bg-white text-gray-900 font-sans antialiased;
   }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
 }
 
-/* Hero background with diagonal color bands like the poster */
-.vivamus-hero-bg {
-  background: linear-gradient(
-    165deg,
-    #4CC9F0 0%,
-    #4CC9F0 35%,
-    #FFFFFF 35%,
-    #FFFFFF 38%,
-    #FFD166 38%,
-    #FFD166 52%,
-    #FFFFFF 52%,
-    #FFFFFF 55%,
-    #F72585 55%,
-    #F72585 100%
-  );
-  position: relative;
-  overflow: hidden;
+@layer components {
+  .font-display {
+    font-family: "Barlow Condensed", system-ui, sans-serif;
+    font-weight: 800;
+  }
+
+  /* Neo-brutalist card */
+  .neo-card {
+    @apply bg-white border-3 border-black shadow-neo;
+  }
+
+  .neo-card-lg {
+    @apply bg-white border-3 border-black shadow-neo-lg;
+  }
+
+  /* Neo-brutalist button press effect */
+  .neo-btn {
+    @apply border-3 border-black shadow-neo font-bold transition-all duration-150 cursor-pointer;
+  }
+
+  .neo-btn:hover,
+  .neo-btn:active {
+    @apply shadow-none translate-x-1 translate-y-1;
+  }
+
+  /* Section divider diagonal */
+  .divider-diagonal-down {
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+    margin-bottom: -2px;
+  }
+
+  .divider-diagonal-up {
+    clip-path: polygon(0 0, 100% 15%, 100% 100%, 0 100%);
+    margin-top: -2px;
+  }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar { width: 8px; }
+  ::-webkit-scrollbar-track { background: #f1f1f1; }
+  ::-webkit-scrollbar-thumb { background: var(--pink); border-radius: 4px; }
 }
 
-/* Subtle texture overlay */
-.vivamus-hero-bg::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: 
-    radial-gradient(circle at 20% 80%, rgba(255,255,255,0.1) 0%, transparent 50%),
-    radial-gradient(circle at 80% 20%, rgba(255,255,255,0.1) 0%, transparent 50%);
-  pointer-events: none;
+@layer utilities {
+  .text-shadow-neo {
+    text-shadow: 3px 3px 0 #000;
+  }
+
+  .text-shadow-neo-sm {
+    text-shadow: 2px 2px 0 #000;
+  }
 }
 
-/* Alternative striped background for sections */
-.vivamus-stripes-bg {
-  background: linear-gradient(
-    165deg,
-    #4CC9F0 0%,
-    #4CC9F0 40%,
-    #FFD166 40%,
-    #FFD166 60%,
-    #F72585 60%,
-    #F72585 100%
-  );
-  position: relative;
+/* Floating decorators keyframes with different offsets */
+@keyframes float-a {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-14px) rotate(8deg); }
 }
 
-/* Gradient accent for cards and elements */
-.vivamus-gradient {
-  background: linear-gradient(135deg, #4CC9F0 0%, #F72585 100%);
+@keyframes float-b {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-10px) rotate(-6deg); }
 }
 
-.vivamus-gradient-alt {
-  background: linear-gradient(135deg, #FFD166 0%, #F72585 100%);
+@keyframes float-c {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-18px) rotate(12deg); }
 }
 
-/* Section backgrounds with subtle color tints */
-.section-sky {
-  background: linear-gradient(180deg, #e6f7fb 0%, #ffffff 100%);
+@keyframes float-d {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-8px) rotate(-10deg); }
 }
 
-.section-pink {
-  background: linear-gradient(180deg, #fce4ec 0%, #ffffff 100%);
+@keyframes flip-in {
+  0% { transform: rotateX(90deg); opacity: 0; }
+  100% { transform: rotateX(0deg); opacity: 1; }
 }
 
-.section-yellow {
-  background: linear-gradient(180deg, #fff8e1 0%, #ffffff 100%);
+.float-a { animation: float-a 5s ease-in-out infinite; }
+.float-b { animation: float-b 4s ease-in-out infinite; }
+.float-c { animation: float-c 6s ease-in-out infinite; }
+.float-d { animation: float-d 3.5s ease-in-out infinite; }
+
+.flip-in { animation: flip-in 0.4s ease-out forwards; }
+
+/* Pulse badge */
+@keyframes pulse-badge {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.06); }
 }
 
-/* Animated gradient border */
-@keyframes gradient-shift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-.animated-border {
-  background: linear-gradient(90deg, #4CC9F0, #F72585, #FFD166, #4CC9F0);
-  background-size: 300% 300%;
-  animation: gradient-shift 4s ease infinite;
-}
-
-/* Button styles */
-.btn-vivamus-primary {
-  @apply bg-white text-gray-900 px-8 py-4 rounded-full text-xl font-bold 
-         transition-all duration-300 border-3 border-black
-         hover:bg-vivamus-yellow hover:scale-105 hover:shadow-xl;
-}
-
-.btn-vivamus-secondary {
-  @apply bg-transparent border-3 border-white text-white px-8 py-4 rounded-full 
-         text-xl font-bold transition-all duration-300
-         hover:bg-white/20 hover:scale-105;
-}
-
-/* Card hover effects */
-.card-hover {
-  @apply transition-all duration-300 hover:shadow-xl hover:-translate-y-1;
-}
-
-/* Youth-inspired decorative elements */
-.decoration-dots::before {
-  content: '';
-  position: absolute;
-  width: 150px;
-  height: 150px;
-  background: radial-gradient(circle, #FFD166 2px, transparent 2px);
-  background-size: 20px 20px;
-  opacity: 0.3;
-  pointer-events: none;
-}
-
-/* Scrollbar styling */
-::-webkit-scrollbar {
-  width: 10px;
-}
-
-::-webkit-scrollbar-track {
-  background: #f1f1f1;
-}
-
-::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #4CC9F0 0%, #F72585 100%);
-  border-radius: 5px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, #3BA8CC 0%, #D61F6F 100%);
+.pulse-badge {
+  animation: pulse-badge 2s ease-in-out infinite;
 }

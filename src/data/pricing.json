@@ -1,28 +1,29 @@
 {
   "phases": [
     {
-      "id": "early-bird",
-      "name": "Early Bird",
+      "id": "preventa",
+      "name": "PREVENTA",
       "price": 350,
       "currency": "MXN",
-      "validity": "Primeras 4 semanas",
-      "active": true
+      "until": "2026-08-02",
+      "validity": "Hasta el 2 de agosto 2026"
     },
     {
       "id": "regular",
-      "name": "Precio Regular",
-      "price": 450,
+      "name": "REGULAR",
+      "price": 390,
       "currency": "MXN",
-      "validity": "Hasta 2 semanas antes",
-      "active": false
+      "from": "2026-08-03",
+      "until": "2026-10-04",
+      "validity": "Del 3 ago al 4 oct 2026"
     },
     {
-      "id": "last-chance",
-      "name": "Última oportunidad",
-      "price": 550,
+      "id": "extemporanea",
+      "name": "EXTEMPORÁNEA",
+      "price": 450,
       "currency": "MXN",
-      "validity": "Última semana",
-      "active": false
+      "from": "2026-10-05",
+      "validity": "Del 5 oct al cierre"
     }
   ]
 }

@@ -1,155 +1,131 @@
-import { useEffect, useState } from 'react';
-import { getEventInfo } from '../services/dataService';
+import { motion } from 'framer-motion';
+import FloatingDecorators from './ui/FloatingDecorators';
+import Countdown from './ui/Countdown';
+import eventInfo from '../data/eventInfo.json';
 
-const Hero = () => {
-  const [eventInfo, setEventInfo] = useState(null);
+const fadeUp = (delay = 0) => ({
+  initial: { opacity: 0, y: 30 },
+  animate: { opacity: 1, y: 0 },
+  transition: { duration: 0.5, delay, ease: 'easeOut' },
+});
 
-  useEffect(() => {
-    getEventInfo().then(setEventInfo).catch(console.error);
-  }, []);
-
-  const scrollToRegistration = () => {
-    const element = document.getElementById('inscripciones');
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
+export default function Hero() {
+  const scrollTo = (id) => {
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
   };
-
-  if (!eventInfo) {
-    return (
-      <section id="inicio" className="vivamus-hero-bg pt-20 min-h-screen flex items-center justify-center">
-        <div className="text-center text-white">
-          <div className="animate-pulse">Cargando...</div>
-        </div>
-      </section>
-    );
-  }
 
   return (
     <section
       id="inicio"
-      className="vivamus-hero-bg pt-20 min-h-screen flex items-center justify-center relative overflow-hidden"
+      className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden pt-16"
+      style={{ background: '#33B9E5' }}
     >
-      {/* Decorative elements */}
-      <div className="absolute top-20 right-10 w-32 h-32 rounded-full bg-white/10 blur-2xl" />
-      <div className="absolute bottom-40 left-10 w-40 h-40 rounded-full bg-white/10 blur-2xl" />
-      
-      {/* Main content */}
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
-          {/* Left side - Text content */}
-          <div className="text-center lg:text-left lg:w-1/2">
-            {/* Coming soon badge */}
-            <div className="inline-block mb-6">
-              <span className="bg-white text-vivamus-pink px-6 py-2 rounded-full text-lg md:text-xl font-bold shadow-vivamus border-3 border-black inline-block transform -rotate-2 hover:rotate-0 transition-transform">
-                ¡MUY PRONTO!
-              </span>
-            </div>
+      {/* Background dot pattern */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          backgroundImage: 'radial-gradient(circle, rgba(0,0,0,0.08) 1px, transparent 1px)',
+          backgroundSize: '28px 28px',
+        }}
+        aria-hidden="true"
+      />
 
-            {/* Logo */}
-            <h1 className="mb-6">
-              <img
-                src="/logo-vivamus.png"
-                alt="Carrera VIVAMUS"
-                className="mx-auto lg:mx-0 h-32 md:h-40 lg:h-48 w-auto object-contain drop-shadow-[3px_3px_0_rgba(0,0,0,0.3)] hover:scale-105 transition-transform"
-              />
-            </h1>
+      {/* Floating decorators */}
+      <FloatingDecorators colors={['#F72585', '#FFD700', '#009B9B', '#ffffff']} />
 
-            {/* Distance badges */}
-            <div className="flex flex-wrap justify-center lg:justify-start gap-3 mb-6">
-              <span className="bg-black text-vivamus-yellow px-6 py-2 rounded-full text-xl md:text-2xl font-bold shadow-vivamus-sm border-2 border-vivamus-yellow">
-                5K
-              </span>
-              <span className="bg-black text-vivamus-sky px-6 py-2 rounded-full text-xl md:text-2xl font-bold shadow-vivamus-sm border-2 border-vivamus-sky">
-                10K
-              </span>
-            </div>
+      {/* Content */}
+      <div className="relative z-10 w-full max-w-4xl mx-auto px-4 flex flex-col items-center text-center gap-5 py-12">
 
-            {/* Event info - canonical date for Vivamus-Merco 2026 */}
-            <p className="text-xl md:text-2xl font-bold text-white mb-4 drop-shadow-[2px_2px_0_rgba(0,0,0,0.5)]">
-              25 de Octubre 2026
-            </p>
-            <p className="text-lg md:text-xl text-white/90 mb-8 font-medium">
-              La carrera más animada de México
-            </p>
+        {/* Logo */}
+        <motion.div
+          initial={{ scale: 0.8, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ duration: 0.6, ease: [0.34, 1.56, 0.64, 1] }}
+        >
+          <img
+            src="/logo-vivamus.png"
+            alt="Carrera VIVAMUS Merco 2026"
+            className="w-64 sm:w-80 md:w-96 h-auto mx-auto drop-shadow-[4px_4px_0_rgba(0,0,0,0.25)]"
+          />
+        </motion.div>
 
-            {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <button
-                onClick={scrollToRegistration}
-                className="bg-white text-black px-8 py-4 rounded-full text-xl font-bold hover:bg-vivamus-yellow transition-all shadow-vivamus border-3 border-black hover:scale-105 hover:-rotate-1"
-              >
-                ¡Inscríbete ahora!
-              </button>
-              <button
-                onClick={() => {
-                  const element = document.getElementById('evento');
-                  if (element) element.scrollIntoView({ behavior: 'smooth' });
-                }}
-                className="bg-transparent border-3 border-white text-white px-8 py-4 rounded-full text-xl font-bold hover:bg-white/20 transition-all hover:scale-105"
-              >
-                Conoce más
-              </button>
-            </div>
-          </div>
+        {/* Tagline */}
+        <motion.p
+          {...fadeUp(0.3)}
+          className="font-display text-3xl sm:text-4xl md:text-5xl text-white leading-tight max-w-xl"
+          style={{ textShadow: '3px 3px 0 #000' }}
+        >
+          La carrera más animada de México
+        </motion.p>
 
-          {/* Right side - Event Cards */}
-          <div className="lg:w-1/2 flex justify-center">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-md">
-              {/* Date Card */}
-              <div className="bg-white rounded-2xl p-6 shadow-vivamus border-3 border-black transform hover:scale-105 hover:-rotate-1 transition-all">
-                <div className="text-vivamus-pink text-sm font-bold uppercase tracking-wider mb-1">
-                  Fecha
-                </div>
-                <div className="text-gray-900 font-bold text-lg">
-                  {eventInfo.date}
-                </div>
-              </div>
+        {/* Date badge */}
+        <motion.div {...fadeUp(0.45)}>
+          <span className="inline-block bg-black text-white font-bold px-5 py-2 rounded-full text-sm sm:text-base border-3 border-black">
+            📍 25 Oct 2026 · Circuito Valle Oriente, Monterrey
+          </span>
+        </motion.div>
 
-              {/* Location Card */}
-              <div className="bg-white rounded-2xl p-6 shadow-vivamus border-3 border-black transform hover:scale-105 hover:rotate-1 transition-all">
-                <div className="text-vivamus-sky text-sm font-bold uppercase tracking-wider mb-1">
-                  Lugar
-                </div>
-                <div className="text-gray-900 font-bold text-lg">
-                  {eventInfo.location.city}
-                </div>
-              </div>
+        {/* Distance badges */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.55, duration: 0.4 }}
+          className="flex gap-3 flex-wrap justify-center"
+        >
+          {[
+            { label: '5K', bg: '#F72585', delay: 0.55 },
+            { label: '10K', bg: '#009B9B', delay: 0.65 },
+          ].map(({ label, bg, delay }) => (
+            <motion.span
+              key={label}
+              initial={{ opacity: 0, x: -10 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay, duration: 0.3 }}
+              className="font-display text-xl sm:text-2xl text-white px-6 py-2 rounded-full border-3 border-black shadow-neo"
+              style={{ background: bg }}
+            >
+              {label}
+            </motion.span>
+          ))}
+        </motion.div>
 
-              {/* Distances Card */}
-              <div className="bg-white rounded-2xl p-6 shadow-vivamus border-3 border-black transform hover:scale-105 hover:rotate-1 transition-all">
-                <div className="text-vivamus-yellow text-sm font-bold uppercase tracking-wider mb-1" style={{ textShadow: '0 0 10px rgba(255,209,102,0.5)' }}>
-                  Distancias
-                </div>
-                <div className="text-gray-900 font-bold text-lg">
-                  {eventInfo.distances.map((d) => d.name).join(' · ')}
-                </div>
-              </div>
+        {/* Countdown */}
+        <motion.div {...fadeUp(0.7)} className="w-full flex flex-col items-center gap-2">
+          <p className="font-bold text-black text-sm uppercase tracking-widest">Faltan</p>
+          <Countdown target={eventInfo.dateISO} />
+        </motion.div>
 
-              {/* Modality Card */}
-              <div className="bg-white rounded-2xl p-6 shadow-vivamus border-3 border-black transform hover:scale-105 hover:-rotate-1 transition-all">
-                <div className="text-vivamus-teal text-sm font-bold uppercase tracking-wider mb-1">
-                  Modalidades
-                </div>
-                <div className="text-gray-900 font-bold text-lg">
-                  {eventInfo.modalities.join(' · ')}
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        {/* CTAs */}
+        <motion.div {...fadeUp(0.85)} className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
+          <button
+            onClick={() => scrollTo('inscripciones')}
+            className="font-display text-lg sm:text-xl text-white px-8 py-3 rounded-full border-3 border-black shadow-neo transition-all duration-150 hover:translate-x-1 hover:translate-y-1 hover:shadow-none active:translate-x-1 active:translate-y-1 active:shadow-none pulse-badge"
+            style={{ background: '#F72585' }}
+          >
+            ¡Inscríbete ahora!
+          </button>
+          <button
+            onClick={() => scrollTo('evento')}
+            className="font-bold text-base sm:text-lg text-black px-8 py-3 rounded-full border-3 border-black bg-white shadow-neo transition-all duration-150 hover:translate-x-1 hover:translate-y-1 hover:shadow-none active:translate-x-1 active:translate-y-1 active:shadow-none"
+          >
+            Conoce más ↓
+          </button>
+        </motion.div>
       </div>
 
       {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce-slow">
-        <div className="bg-white/20 backdrop-blur-sm rounded-full p-3 border-2 border-white/50">
-          <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+      <motion.div
+        animate={{ y: [0, 8, 0] }}
+        transition={{ repeat: Infinity, duration: 1.6, ease: 'easeInOut' }}
+        className="absolute bottom-6 left-1/2 -translate-x-1/2"
+        aria-hidden="true"
+      >
+        <div className="w-8 h-8 border-3 border-black rounded-full bg-white flex items-center justify-center">
+          <svg className="w-4 h-4 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M19 9l-7 7-7-7" />
           </svg>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
-};
-
-export default Hero;
+}
