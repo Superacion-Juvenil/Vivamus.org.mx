@@ -289,7 +289,7 @@ Evento anual, típicamente en noviembre. Ciclo de planeación: 6-8 meses previos
 #### Hero Principal
 **Headline:** Merco-VIVAMUS 2025
 **Subheadline:** La carrera más animada de México
-**CTA:** ¡Inscríbete ahora!
+**CTA:** INSCRIPCIONES PRÓXIMAMENTE
 
 #### ¿Qué es Merco-VIVAMUS?
 Una carrera familiar para promover los valores de una manera divertida. Es una experiencia de fiesta donde voluntarios de todas las edades animan con porras durante todo el recorrido. En Merco-VIVAMUS se vive un ambiente de compañerismo, motivación y alegría.
@@ -321,7 +321,7 @@ Ser el evento número uno en el estado de Nuevo León para las familias mexicana
 | **Distancias** | 5K, 10K y 15K |
 | **Modalidades** | Presencial y Virtual |
 
-### Categorías y Precios (Ejemplo)
+### Categorías y Precios
 
 | Categoría | Edad | Distancias Disponibles |
 |-----------|------|------------------------|
@@ -331,11 +331,16 @@ Ser el evento número uno en el estado de Nuevo León para las familias mexicana
 | Máster | 40-49 años | 5K, 10K, 15K |
 | Veteranos | 50+ años | 5K, 10K, 15K |
 
-| Fase | Precio Sugerido | Vigencia |
-|------|-----------------|----------|
-| Early Bird | $350 MXN | Primeras 4 semanas |
-| Precio Regular | $450 MXN | Hasta 2 semanas antes |
-| Última oportunidad | $550 MXN | Última semana |
+| Fase | Precio | Vigencia |
+|------|--------|----------|
+| PREVENTA | $350.00 MXN | Hasta el 2 de agosto de 2026 |
+| REGULAR | $390.00 MXN | Del 3 de agosto al 4 de octubre de 2026 |
+| EXTEMPORANEA | $450.00 MXN | Del 5 de octubre al cierre de inscripciones |
+
+### Patrocinadores Confirmados
+- **Merco** (patrocinador principal).
+- Al momento no hay otros patrocinadores confirmados.
+- El logo de Merco ya fue solicitado para integrarlo en materiales y sitio web.
 
 ### Kit del Corredor Incluye
 - Playera oficial Merco-VIVAMUS 2025
@@ -360,7 +365,7 @@ Contamos con modalidad virtual. Podrás correr tu distancia en cualquier lugar y
 El 100% de los fondos netos se destinan a los programas de formación de Superación Juvenil ABP, beneficiando a miles de jóvenes en Nuevo León.
 
 **¿Cómo me inscribo?**
-Puedes inscribirte directamente en esta página web o en los puntos de inscripción físicos en tiendas Merco participantes.
+Las inscripciones aun no estan abiertas. Publicaremos el enlace directo en esta pagina cuando se habilite el registro.
 
 **¿El recorrido está certificado?**
 Sí, contamos con certificación oficial y sistema de cronometraje profesional.

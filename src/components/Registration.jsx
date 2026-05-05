@@ -1,20 +1,9 @@
 import { useEffect, useState } from 'react';
-import { getPricing, getCategories, saveRegistration } from '../services/dataService';
+import { getPricing, getCategories } from '../services/dataService';
 
 const Registration = () => {
   const [pricing, setPricing] = useState(null);
   const [categories, setCategories] = useState(null);
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    age: '',
-    category: '',
-    distance: '',
-    modality: 'Presencial',
-  });
-  const [errors, setErrors] = useState({});
-  const [submitted, setSubmitted] = useState(false);
 
   useEffect(() => {
     Promise.all([getPricing(), getCategories()])
@@ -24,65 +13,6 @@ const Registration = () => {
       })
       .catch(console.error);
   }, []);
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-    if (errors[name]) {
-      setErrors((prev) => ({ ...prev, [name]: '' }));
-    }
-  };
-
-  const validateForm = () => {
-    const newErrors = {};
-    if (!formData.name.trim()) newErrors.name = 'El nombre es requerido';
-    if (!formData.email.trim()) {
-      newErrors.email = 'El email es requerido';
-    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
-      newErrors.email = 'El email no es válido';
-    }
-    if (!formData.phone.trim()) newErrors.phone = 'El teléfono es requerido';
-    if (!formData.age) newErrors.age = 'La edad es requerida';
-    if (!formData.category) newErrors.category = 'La categoría es requerida';
-    if (!formData.distance) newErrors.distance = 'La distancia es requerida';
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (validateForm()) {
-      try {
-        saveRegistration(formData);
-        setSubmitted(true);
-        setFormData({
-          name: '',
-          email: '',
-          phone: '',
-          age: '',
-          category: '',
-          distance: '',
-          modality: 'Presencial',
-        });
-        setTimeout(() => setSubmitted(false), 5000);
-      } catch (error) {
-        console.error('Error al guardar inscripción:', error);
-        alert('Hubo un error al procesar tu inscripción. Por favor intenta de nuevo.');
-      }
-    }
-  };
-
-  const getAvailableDistances = () => {
-    if (!categories || !formData.category) return [];
-    const category = categories.categories.find((c) => c.id === formData.category);
-    return category ? category.distances : [];
-  };
-
-  const getCurrentPrice = () => {
-    if (!pricing) return 0;
-    const activePhase = pricing.phases.find((p) => p.active);
-    return activePhase ? activePhase.price : pricing.phases[0].price;
-  };
 
   if (!pricing || !categories) {
     return (
@@ -177,169 +107,19 @@ const Registration = () => {
           </div>
         </div>
 
-        {/* Registration Form */}
+        {/* Registration Status */}
         <div className="max-w-2xl mx-auto bg-white rounded-3xl shadow-vivamus-lg border-3 border-black p-8 md:p-12">
           <h3 className="text-2xl font-bold mb-6 text-center text-gray-900">
-            Formulario de Inscripción
+            Estado de Inscripciones
           </h3>
-
-          {submitted && (
-            <div className="mb-6 bg-green-100 border-2 border-green-500 text-green-700 px-6 py-4 rounded-2xl flex items-center">
-              <svg className="w-6 h-6 mr-3" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-              </svg>
-              ¡Inscripción exitosa! Te hemos enviado un correo de confirmación.
-            </div>
-          )}
-
-          <form onSubmit={handleSubmit} className="space-y-6">
-            <FormField
-              label="Nombre Completo"
-              name="name"
-              type="text"
-              value={formData.name}
-              onChange={handleChange}
-              error={errors.name}
-              placeholder="Juan Pérez"
-            />
-
-            <FormField
-              label="Email"
-              name="email"
-              type="email"
-              value={formData.email}
-              onChange={handleChange}
-              error={errors.email}
-              placeholder="juan@ejemplo.com"
-            />
-
-            <FormField
-              label="Teléfono"
-              name="phone"
-              type="tel"
-              value={formData.phone}
-              onChange={handleChange}
-              error={errors.phone}
-              placeholder="(81) 1234 5678"
-            />
-
-            <FormField
-              label="Edad"
-              name="age"
-              type="number"
-              value={formData.age}
-              onChange={handleChange}
-              error={errors.age}
-              placeholder="25"
-              min="6"
-              max="100"
-            />
-
-            <div>
-              <label className="block text-gray-700 font-bold mb-2">
-                Categoría *
-              </label>
-              <select
-                name="category"
-                value={formData.category}
-                onChange={handleChange}
-                className={`w-full px-4 py-3 border-2 rounded-xl focus:outline-none focus:ring-2 transition-all ${
-                  errors.category 
-                    ? 'border-red-500 focus:ring-red-200' 
-                    : 'border-gray-200 focus:ring-vivamus-sky/30 focus:border-vivamus-sky'
-                }`}
-              >
-                <option value="">Selecciona una categoría</option>
-                {categories.categories.map((category) => (
-                  <option key={category.id} value={category.id}>
-                    {category.name} ({category.ageRange})
-                  </option>
-                ))}
-              </select>
-              {errors.category && (
-                <p className="text-red-500 text-sm mt-1">{errors.category}</p>
-              )}
-            </div>
-
-            <div>
-              <label className="block text-gray-700 font-bold mb-2">
-                Distancia *
-              </label>
-              <select
-                name="distance"
-                value={formData.distance}
-                onChange={handleChange}
-                disabled={!formData.category}
-                className={`w-full px-4 py-3 border-2 rounded-xl focus:outline-none focus:ring-2 transition-all ${
-                  errors.distance
-                    ? 'border-red-500 focus:ring-red-200'
-                    : 'border-gray-200 focus:ring-vivamus-sky/30 focus:border-vivamus-sky'
-                } ${!formData.category ? 'bg-gray-100 cursor-not-allowed' : ''}`}
-              >
-                <option value="">
-                  {formData.category
-                    ? 'Selecciona una distancia'
-                    : 'Primero selecciona una categoría'}
-                </option>
-                {getAvailableDistances().map((distance) => (
-                  <option key={distance} value={distance}>
-                    {distance.toUpperCase()}
-                  </option>
-                ))}
-              </select>
-              {errors.distance && (
-                <p className="text-red-500 text-sm mt-1">{errors.distance}</p>
-              )}
-            </div>
-
-            <div>
-              <label className="block text-gray-700 font-bold mb-2">
-                Modalidad *
-              </label>
-              <div className="flex gap-4">
-                {['Presencial', 'Virtual'].map((mod) => (
-                  <label
-                    key={mod}
-                    className={`flex-1 flex items-center justify-center px-6 py-3 border-2 rounded-xl cursor-pointer transition-all ${
-                      formData.modality === mod
-                        ? 'border-vivamus-pink bg-vivamus-pink/10 text-vivamus-pink'
-                        : 'border-gray-200 hover:border-gray-300'
-                    }`}
-                  >
-                    <input
-                      type="radio"
-                      name="modality"
-                      value={mod}
-                      checked={formData.modality === mod}
-                      onChange={handleChange}
-                      className="sr-only"
-                    />
-                    <span className="font-medium">{mod}</span>
-                  </label>
-                ))}
-              </div>
-            </div>
-
-            <div className="bg-vivamus-sky/10 rounded-2xl p-6 border-2 border-vivamus-sky/30">
-              <div className="flex justify-between items-center">
-                <span className="text-gray-700 font-bold">Total a pagar:</span>
-                <span className="text-3xl font-bold text-vivamus-pink">
-                  ${getCurrentPrice()} <span className="text-lg">MXN</span>
-                </span>
-              </div>
-            </div>
-
-            <button
-              type="submit"
-              className="w-full bg-vivamus-pink text-white py-4 rounded-2xl font-bold text-xl hover:bg-vivamus-sky border-3 border-black shadow-vivamus transition-all hover:scale-[1.02] hover:-rotate-0.5"
-            >
-              ¡Inscribirme Ahora!
-            </button>
-
-            <p className="text-sm text-gray-500 text-center">
-              * Los campos marcados con asterisco son obligatorios
+          <div className="bg-vivamus-pink/10 border-2 border-vivamus-pink rounded-2xl p-6 text-center">
+            <p className="text-2xl font-bold text-vivamus-pink mb-2">
+              INSCRIPCIONES PRÓXIMAMENTE
             </p>
-          </form>
+            <p className="text-gray-700">
+              El enlace directo de registro se habilitará más adelante.
+            </p>
+          </div>
         </div>
 
         {/* Kit Pickup Points */}
@@ -362,29 +142,5 @@ const Registration = () => {
     </section>
   );
 };
-
-const FormField = ({ label, name, type, value, onChange, error, placeholder, ...props }) => (
-  <div>
-    <label className="block text-gray-700 font-bold mb-2">
-      {label} *
-    </label>
-    <input
-      type={type}
-      name={name}
-      value={value}
-      onChange={onChange}
-      placeholder={placeholder}
-      className={`w-full px-4 py-3 border-2 rounded-xl focus:outline-none focus:ring-2 transition-all ${
-        error 
-          ? 'border-red-500 focus:ring-red-200' 
-          : 'border-gray-200 focus:ring-vivamus-sky/30 focus:border-vivamus-sky'
-      }`}
-      {...props}
-    />
-    {error && (
-      <p className="text-red-500 text-sm mt-1">{error}</p>
-    )}
-  </div>
-);
 
 export default Registration;

@@ -60,7 +60,7 @@ const Header = () => {
               onClick={() => scrollToSection('inscripciones')}
               className="bg-vivamus-pink text-white px-6 py-2 rounded-full hover:bg-vivamus-sky transition-all font-bold border-2 border-black shadow-vivamus-sm hover:scale-105 hover:-rotate-1"
             >
-              ¡Inscríbete!
+              Próximamente
             </button>
           </div>
 
@@ -109,7 +109,7 @@ const Header = () => {
               onClick={() => scrollToSection('inscripciones')}
               className="block w-full bg-vivamus-pink text-white px-6 py-3 rounded-full hover:bg-vivamus-sky transition-colors font-bold text-center mt-4 border-2 border-black shadow-vivamus-sm"
             >
-              ¡Inscríbete!
+              Próximamente
             </button>
           </div>
         )}

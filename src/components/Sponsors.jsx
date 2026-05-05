@@ -32,7 +32,7 @@ const Sponsors = () => {
         {/* Section Header */}
         <div className="text-center mb-12">
           <span className="inline-block bg-vivamus-pink text-white px-4 py-1 rounded-full text-sm font-bold mb-4 transform rotate-1">
-            NUESTROS ALIADOS
+            PATROCINADORES
           </span>
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900">
             Patrocinadores
@@ -116,7 +116,7 @@ const Sponsors = () => {
         </div>
 
         {/* Other Sponsors */}
-        {sponsors.otherSponsors && sponsors.otherSponsors.length > 0 && (
+        {sponsors.otherSponsors && sponsors.otherSponsors.length > 0 ? (
           <div className="mb-12">
             <h3 className="text-2xl font-bold mb-6 text-center text-gray-900">
               Otros Patrocinadores
@@ -139,6 +139,15 @@ const Sponsors = () => {
                 </div>
               ))}
             </div>
+          </div>
+        ) : (
+          <div className="mb-12 bg-white rounded-3xl p-8 text-center border-3 border-black shadow-vivamus">
+            <h3 className="text-2xl font-bold mb-3 text-gray-900">
+              Más patrocinadores próximamente
+            </h3>
+            <p className="text-gray-600">
+              Al momento, Merco es el único patrocinador confirmado.
+            </p>
           </div>
         )}
 

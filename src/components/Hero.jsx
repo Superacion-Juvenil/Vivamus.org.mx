@@ -79,7 +79,7 @@ const Hero = () => {
                 onClick={scrollToRegistration}
                 className="bg-white text-black px-8 py-4 rounded-full text-xl font-bold hover:bg-vivamus-yellow transition-all shadow-vivamus border-3 border-black hover:scale-105 hover:-rotate-1"
               >
-                ¡Inscríbete ahora!
+                INSCRIPCIONES PRÓXIMAMENTE
               </button>
               <button
                 onClick={() => {
