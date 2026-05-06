@@ -29,36 +29,36 @@ export default function Sponsors() {
           </h2>
         </motion.div>
 
-        {/* Sponsor logos */}
+        {/* Logo cards */}
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ staggerChildren: 0.15 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-12"
+          className="flex flex-col sm:flex-row items-center justify-center gap-8 mb-12"
         >
           {/* Merco */}
           <motion.div
             {...staggerChild}
-            className="neo-card-lg rounded-2xl p-8 sm:p-10 flex flex-col items-center justify-center gap-3 w-full sm:w-64 transition-all duration-150 hover:-translate-y-1 hover:shadow-neo-xl"
-            style={{ background: '#DD2200' }}
+            className="neo-card rounded-2xl p-8 flex items-center justify-center w-full sm:w-72 h-40 transition-all duration-150 hover:-translate-y-1 hover:shadow-neo-lg"
           >
-            <span className="font-display text-5xl sm:text-6xl text-white" style={{ textShadow: '3px 3px 0 #000' }}>
-              merco
-            </span>
-            <span className="text-white/80 text-xs font-bold uppercase tracking-widest">Patrocinador Principal</span>
+            <img
+              src="/logo-merco.jpg"
+              alt="Merco"
+              className="max-h-24 max-w-full object-contain"
+            />
           </motion.div>
 
           {/* Superación Juvenil */}
           <motion.div
             {...staggerChild}
-            className="neo-card-lg rounded-2xl p-8 sm:p-10 flex flex-col items-center justify-center gap-3 w-full sm:w-64 transition-all duration-150 hover:-translate-y-1 hover:shadow-neo-xl"
-            style={{ background: '#009B9B' }}
+            className="neo-card rounded-2xl p-8 flex items-center justify-center w-full sm:w-72 h-40 transition-all duration-150 hover:-translate-y-1 hover:shadow-neo-lg"
           >
-            <span className="font-display text-3xl sm:text-4xl text-white text-center" style={{ textShadow: '2px 2px 0 #000' }}>
-              Superación Juvenil ABP
-            </span>
-            <span className="text-white/80 text-xs font-bold uppercase tracking-widest">Organizador</span>
+            <img
+              src="/logo-sj.jpg"
+              alt="Superación Juvenil ABP"
+              className="max-h-24 max-w-full object-contain"
+            />
           </motion.div>
         </motion.div>
 
