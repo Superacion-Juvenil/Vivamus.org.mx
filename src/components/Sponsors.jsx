@@ -40,12 +40,12 @@ export default function Sponsors() {
           {/* Merco */}
           <motion.div
             {...staggerChild}
-            className="neo-card rounded-2xl p-8 flex items-center justify-center w-full sm:w-72 h-40 transition-all duration-150 hover:-translate-y-1 hover:shadow-neo-lg"
+            className="neo-card rounded-2xl p-4 flex items-center justify-center w-full sm:w-72 h-40 transition-all duration-150 hover:-translate-y-1 hover:shadow-neo-lg"
           >
             <img
               src="/logo-merco.jpg"
               alt="Merco"
-              className="max-h-24 max-w-full object-contain"
+              className="max-h-32 max-w-full object-contain"
             />
           </motion.div>
 

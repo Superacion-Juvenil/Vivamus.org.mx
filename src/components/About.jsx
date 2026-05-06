@@ -99,7 +99,7 @@ export default function About() {
                 </h3>
 
                 <div className="font-display text-4xl sm:text-5xl text-white mb-2">
-                  + jóvenes impactados en el 2025
+                  + 2,500 jóvenes impactados en el 2025
                 </div>
 
                 <p className="text-white/90 text-sm font-medium mt-4 leading-relaxed">
