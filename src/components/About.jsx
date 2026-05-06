@@ -26,15 +26,11 @@ const staggerChild = {
 
 const stats = [
   { value: 15, suffix: '', label: 'Ediciones', bg: '#F72585', text: '#fff' },
-  { value: 3500, suffix: '+', label: 'Corredores', bg: '#FFD700', text: '#000' },
-  { value: 500, suffix: '+', label: 'Voluntarios', bg: '#009B9B', text: '#fff' },
+  { value: 4000, suffix: '+', label: 'Corredores', bg: '#FFD700', text: '#000' },
+  { value: 300, suffix: '+', label: 'Voluntarios', bg: '#009B9B', text: '#fff' },
 ];
 
-const programs = [
-  { emoji: '🏫', label: 'Adolescentes 13-17 años' },
-  { emoji: '🎓', label: 'Universitarios 18-25 años' },
-  { emoji: '🌱', label: 'En la Brecha (voluntariado)' },
-];
+const causeDescription = 'Los fondos recaudados apoyan los programas de Superación Juvenil ABP, que tiene como objetivo fundar, administrar, dirigir, crear y desarrollar Centros de Valores para jóvenes a través de los cuales se impulse orientación social con programas de formación de valores que fortalezcan su desarrollo humano y las relaciones en el seno familiar y en el medio social en que habiten.';
 
 export default function About() {
   return (
@@ -65,10 +61,7 @@ export default function About() {
               </motion.p>
 
               {/* Stat cards */}
-              <motion.div
-                {...stagger}
-                className="grid grid-cols-3 gap-3"
-              >
+              <motion.div {...stagger} className="grid grid-cols-3 gap-3">
                 {stats.map(({ value, suffix, label, bg, text }) => (
                   <motion.div
                     key={label}
@@ -84,16 +77,6 @@ export default function About() {
                     </div>
                   </motion.div>
                 ))}
-              </motion.div>
-
-              {/* History blurb */}
-              <motion.div {...fadeUp} className="mt-8 neo-card rounded-2xl p-6">
-                <p className="text-gray-700 leading-relaxed text-base">
-                  {about.history.description}
-                </p>
-                <p className="text-gray-600 mt-3 text-sm font-medium">
-                  {about.history.consolidation}
-                </p>
               </motion.div>
             </div>
 
@@ -115,27 +98,12 @@ export default function About() {
                   Superación Juvenil ABP
                 </h3>
 
-                <div className="font-display text-5xl sm:text-6xl text-white text-shadow-neo mb-2">
-                  +<CountUp end={100000} />
-                </div>
-                <p className="text-white font-bold text-sm mb-6 opacity-90">
-                  jóvenes impactados en 45 años
-                </p>
-
-                <div className="space-y-2 mb-6">
-                  {programs.map(({ emoji, label }) => (
-                    <div
-                      key={label}
-                      className="flex items-center gap-2 bg-white/20 rounded-xl px-4 py-2"
-                    >
-                      <span className="text-lg">{emoji}</span>
-                      <span className="text-white font-bold text-sm">{label}</span>
-                    </div>
-                  ))}
+                <div className="font-display text-4xl sm:text-5xl text-white mb-2">
+                  + jóvenes impactados en el 2025
                 </div>
 
-                <p className="text-white/90 text-sm font-medium">
-                  {about.cause.description}
+                <p className="text-white/90 text-sm font-medium mt-4 leading-relaxed">
+                  {causeDescription}
                 </p>
               </div>
             </motion.div>

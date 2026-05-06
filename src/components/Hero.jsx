@@ -57,13 +57,13 @@ export default function Hero() {
           className="font-display text-3xl sm:text-4xl md:text-5xl text-white leading-tight max-w-xl"
           style={{ textShadow: '3px 3px 0 #000' }}
         >
-          La carrera más animada de México
+          ¡Corre en Familia!
         </motion.p>
 
         {/* Date badge */}
         <motion.div {...fadeUp(0.45)}>
           <span className="inline-block bg-black text-white font-bold px-5 py-2 rounded-full text-sm sm:text-base border-3 border-black">
-            📍 25 Oct 2026 · Circuito Valle Oriente, Monterrey
+            📍 25 de Octubre 2026 · Circuito Vía Deportiva, Monterrey
           </span>
         </motion.div>
 
@@ -114,7 +114,6 @@ export default function Hero() {
           </button>
         </motion.div>
       </div>
-
     </section>
   );
 }

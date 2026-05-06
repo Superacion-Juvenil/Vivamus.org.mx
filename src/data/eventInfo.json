@@ -1,30 +1,27 @@
 {
   "year": "2026",
   "name": "Carrera VIVAMUS Merco 2026",
-  "slogan": "¡Vive los valores, vive la experiencia VIVAMUS!",
+  "slogan": "¡Corre en Familia!",
   "date": "25 de Octubre 2026",
   "dateISO": "2026-10-25T07:00:00",
   "dateToConfirm": false,
   "location": {
-    "name": "Circuito Valle Oriente",
+    "name": "Circuito Vía Deportiva",
     "city": "Monterrey",
     "state": "Nuevo León",
-    "fullAddress": "Circuito Valle Oriente, Monterrey, N.L."
+    "fullAddress": "Circuito Vía Deportiva, Monterrey, N.L."
   },
-  "startTime": "07:00",
   "distances": [
     {
       "id": "5k",
       "name": "5K",
       "description": "Perfecta para toda la familia. Corre con tus hijos, amigos o en pareja.",
-      "level": "Para todos",
       "color": "pink"
     },
     {
       "id": "10k",
       "name": "10K",
       "description": "El reto intermedio. Para quienes quieren superarse y sentir la adrenalina.",
-      "level": "Intermedio",
       "color": "teal"
     }
   ],

@@ -7,7 +7,6 @@ const navLinks = [
   { id: 'evento', label: 'El Evento' },
   { id: 'inscripciones', label: 'Inscripciones' },
   { id: 'patrocinadores', label: 'Patrocinadores' },
-  { id: 'faq', label: 'FAQ' },
 ];
 
 export default function Header() {

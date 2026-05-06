@@ -18,8 +18,8 @@ const staggerChild = {
 };
 
 const distanceConfig = {
-  '5k': { bg: '#F72585', text: '#fff', emoji: '🏃' },
-  '10k': { bg: '#009B9B', text: '#fff', emoji: '💪' },
+  '5k': { bg: '#F72585', text: '#fff' },
+  '10k': { bg: '#009B9B', text: '#fff' },
 };
 
 export default function EventDetails() {
@@ -41,30 +41,24 @@ export default function EventDetails() {
               EL EVENTO
             </span>
             <h2 className="font-display text-4xl sm:text-5xl md:text-6xl text-black">
-              Elige tu reto
+              Elige tu distancia
             </h2>
           </motion.div>
 
-          {/* Date & Location banner */}
+          {/* Date & Location banner — no start time */}
           <motion.div
             {...fadeUp}
-            className="neo-card-lg rounded-2xl p-6 sm:p-8 mb-10 flex flex-col sm:flex-row items-center justify-center gap-6 text-center sm:text-left"
+            className="neo-card-lg rounded-2xl p-6 sm:p-8 mb-10 flex items-center justify-center gap-4 text-center"
             style={{ background: '#000', color: '#fff' }}
           >
-            <div className="text-4xl">📅</div>
+            <div className="text-3xl">📅</div>
             <div>
-              <p className="font-display text-2xl sm:text-3xl text-white">{eventInfo.date}</p>
-              <p className="text-white/80 font-bold text-sm mt-1">{eventInfo.location.fullAddress}</p>
-            </div>
-            <div className="hidden sm:block w-px h-12 bg-white/30" />
-            <div className="text-4xl">⏰</div>
-            <div>
-              <p className="font-display text-2xl sm:text-3xl text-white">07:00 AM</p>
-              <p className="text-white/80 font-bold text-sm mt-1">Hora de salida</p>
+              <p className="font-display text-2xl sm:text-3xl text-white">25 de Octubre 2026</p>
+              <p className="text-white/80 font-bold text-sm mt-1">Circuito Vía Deportiva, Monterrey</p>
             </div>
           </motion.div>
 
-          {/* Distance cards */}
+          {/* Distance cards — centered, bigger badge, no emoji, no level */}
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
@@ -73,28 +67,25 @@ export default function EventDetails() {
             className="grid sm:grid-cols-2 gap-6 mb-10"
           >
             {eventInfo.distances.map((d) => {
-              const cfg = distanceConfig[d.id] || { bg: '#F72585', text: '#fff', emoji: '🏃' };
+              const cfg = distanceConfig[d.id] || { bg: '#F72585', text: '#fff' };
               return (
                 <motion.div
                   key={d.id}
                   {...staggerChild}
-                  className="neo-card-lg rounded-2xl p-6 sm:p-8 flex flex-col gap-4 cursor-default group transition-all duration-150 hover:-translate-y-2 hover:shadow-none active:-translate-y-2"
+                  className="neo-card-lg rounded-2xl p-8 sm:p-10 flex flex-col items-center text-center gap-4 cursor-default transition-all duration-150 hover:-translate-y-2 hover:shadow-none active:-translate-y-2"
                 >
-                  {/* Badge */}
-                  <div className="flex items-center gap-3">
-                    <span
-                      className="font-display text-4xl sm:text-5xl px-5 py-2 rounded-xl border-3 border-black shadow-neo-sm"
-                      style={{ background: cfg.bg, color: cfg.text }}
-                    >
-                      {d.name}
-                    </span>
-                    <span className="text-3xl">{cfg.emoji}</span>
-                  </div>
+                  {/* Big centered badge */}
+                  <span
+                    className="font-display text-6xl sm:text-7xl px-8 py-4 rounded-2xl border-3 border-black shadow-neo"
+                    style={{ background: cfg.bg, color: cfg.text }}
+                  >
+                    {d.name}
+                  </span>
 
-                  {/* SVG runner icon — stroke animation */}
+                  {/* SVG stroke animation */}
                   <svg
                     viewBox="0 0 80 40"
-                    className="w-20 h-10 opacity-30"
+                    className="w-20 h-10 opacity-25"
                     fill="none"
                     stroke="#000"
                     strokeWidth="2.5"
@@ -110,34 +101,20 @@ export default function EventDetails() {
                   </svg>
 
                   <p className="text-gray-800 font-medium leading-relaxed">{d.description}</p>
-
-                  <div className="flex items-center gap-2">
-                    <span className="text-xs font-bold uppercase tracking-wide text-gray-500">Nivel:</span>
-                    <span
-                      className="text-xs font-bold px-3 py-1 rounded-full border-2 border-black"
-                      style={{ background: cfg.bg, color: cfg.text }}
-                    >
-                      {d.level}
-                    </span>
-                  </div>
                 </motion.div>
               );
             })}
           </motion.div>
 
-          {/* Presencial only pill */}
+          {/* Presencial pill */}
           <motion.div {...fadeUp} className="flex justify-center mb-10">
             <div className="inline-flex items-center gap-3 neo-card rounded-full px-6 py-3 bg-white text-black font-bold text-base sm:text-lg">
-              <span className="text-2xl">🏃</span>
-              Presencial · Circuito Valle Oriente, Monterrey
+              Presencial · Circuito Vía Deportiva, Monterrey
             </div>
           </motion.div>
 
           {/* Kit del corredor */}
-          <motion.div
-            {...fadeUp}
-            className="neo-card-lg rounded-2xl p-6 sm:p-8 mb-10 bg-white"
-          >
+          <motion.div {...fadeUp} className="neo-card-lg rounded-2xl p-6 sm:p-8 mb-10 bg-white">
             <h3 className="font-display text-2xl sm:text-3xl text-black mb-6 text-center">
               🎁 Kit del Corredor
             </h3>

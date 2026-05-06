@@ -6,7 +6,7 @@ import Hero from './components/Hero';
 import About from './components/About';
 import EventDetails from './components/EventDetails';
 import Registration from './components/Registration';
-import FAQ from './components/FAQ';
+import Sponsors from './components/Sponsors';
 
 function App() {
   return (
@@ -17,7 +17,7 @@ function App() {
         <About />
         <EventDetails />
         <Registration />
-        <FAQ />
+        <Sponsors />
       </main>
       <Footer />
       <Analytics />
