@@ -1,140 +1,134 @@
 import { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 
-const Header = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
+const navLinks = [
+  { id: 'inicio', label: 'Inicio' },
+  { id: 'nosotros', label: 'Nosotros' },
+  { id: 'evento', label: 'El Evento' },
+  { id: 'inscripciones', label: 'Inscripciones' },
+  { id: 'patrocinadores', label: 'Patrocinadores' },
+];
+
+export default function Header() {
+  const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    const onScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  const scrollToSection = (sectionId) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-      setIsMenuOpen(false);
-    }
+  const handleNav = (id) => {
+    setMenuOpen(false);
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled 
-          ? 'bg-white shadow-lg border-b-3 border-black' 
-          : 'bg-white/95 backdrop-blur-sm'
-      }`}
+      className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
+      style={{
+        background: scrolled ? '#33B9E5' : 'transparent',
+        borderBottom: scrolled ? '3px solid #000' : 'none',
+      }}
     >
-      <nav className="container mx-auto px-4 py-3">
-        <div className="flex items-center justify-between">
-          {/* Logo */}
-          <a
-            href="#inicio"
-            onClick={(e) => {
-              e.preventDefault();
-              scrollToSection('inicio');
-            }}
-            className="flex items-center shrink-0 hover:scale-105 transition-transform"
-            aria-label="Carrera VIVAMUS - Inicio"
-          >
-            <img
-              src="/logo-vivamus.png"
-              alt="Carrera VIVAMUS"
-              className="h-10 md:h-12 w-auto object-contain"
-            />
-          </a>
-
-          {/* Desktop Menu */}
-          <div className="hidden lg:flex items-center space-x-6">
-            <NavButton onClick={() => scrollToSection('inicio')}>Inicio</NavButton>
-            <NavButton onClick={() => scrollToSection('nosotros')}>Nosotros</NavButton>
-            <NavButton onClick={() => scrollToSection('evento')}>El Evento</NavButton>
-            <NavButton onClick={() => scrollToSection('inscripciones')}>Inscripciones</NavButton>
-            <NavButton onClick={() => scrollToSection('patrocinadores')}>Patrocinadores</NavButton>
-            <NavButton onClick={() => scrollToSection('galeria')}>Galería</NavButton>
-            <NavButton onClick={() => scrollToSection('faq')}>FAQ</NavButton>
-            <button
-              onClick={() => scrollToSection('inscripciones')}
-              className="bg-vivamus-pink text-white px-6 py-2 rounded-full hover:bg-vivamus-sky transition-all font-bold border-2 border-black shadow-vivamus-sm hover:scale-105 hover:-rotate-1"
-            >
-              Próximamente
-            </button>
+      <div className="max-w-7xl mx-auto px-4 flex items-center justify-between h-16">
+        {/* Logo */}
+        <button
+          onClick={() => handleNav('inicio')}
+          className="flex items-center focus:outline-none"
+          aria-label="Ir al inicio"
+        >
+          <div className="h-10 w-10 rounded-xl overflow-hidden transition-transform duration-200 hover:scale-105 border-2 border-black/10">
+            <img src="/logo-vivamus.png" alt="VIVAMUS" className="w-full h-full object-cover" />
           </div>
+        </button>
 
-          {/* Mobile Menu Button */}
+        {/* Desktop nav */}
+        <nav className="hidden lg:flex items-center gap-1" aria-label="Navegación principal">
+          {navLinks.map((link) => (
+            <button
+              key={link.id}
+              onClick={() => handleNav(link.id)}
+              className="px-3 py-1.5 font-bold text-black text-sm rounded-md transition-all duration-150 hover:bg-black hover:text-white"
+            >
+              {link.label}
+            </button>
+          ))}
           <button
-            className="lg:hidden text-gray-700 p-2 rounded-lg hover:bg-gray-100 transition-colors"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            aria-label="Toggle menu"
+            onClick={() => handleNav('inscripciones')}
+            className="ml-3 px-5 py-2 rounded-full text-sm font-bold text-white border-3 border-black shadow-neo transition-all duration-150 hover:translate-x-1 hover:translate-y-1 hover:shadow-none"
+            style={{ background: '#F72585' }}
           >
-            <svg
-              className="w-6 h-6"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              {isMenuOpen ? (
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              ) : (
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M4 6h16M4 12h16M4 18h16"
-                />
-              )}
-            </svg>
+            ¡Inscríbete!
           </button>
-        </div>
+        </nav>
 
-        {/* Mobile Menu */}
-        {isMenuOpen && (
-          <div className="lg:hidden mt-4 pb-4 space-y-2 border-t border-gray-200 pt-4">
-            <MobileNavButton onClick={() => scrollToSection('inicio')}>Inicio</MobileNavButton>
-            <MobileNavButton onClick={() => scrollToSection('nosotros')}>Nosotros</MobileNavButton>
-            <MobileNavButton onClick={() => scrollToSection('evento')}>El Evento</MobileNavButton>
-            <MobileNavButton onClick={() => scrollToSection('inscripciones')}>Inscripciones</MobileNavButton>
-            <MobileNavButton onClick={() => scrollToSection('patrocinadores')}>Patrocinadores</MobileNavButton>
-            <MobileNavButton onClick={() => scrollToSection('galeria')}>Galería</MobileNavButton>
-            <MobileNavButton onClick={() => scrollToSection('faq')}>FAQ</MobileNavButton>
-            <button
-              onClick={() => scrollToSection('inscripciones')}
-              className="block w-full bg-vivamus-pink text-white px-6 py-3 rounded-full hover:bg-vivamus-sky transition-colors font-bold text-center mt-4 border-2 border-black shadow-vivamus-sm"
-            >
-              Próximamente
-            </button>
-          </div>
+        {/* Mobile hamburger */}
+        <button
+          className="lg:hidden flex flex-col justify-center gap-1.5 p-2 focus:outline-none w-10 h-10"
+          onClick={() => setMenuOpen(!menuOpen)}
+          aria-label={menuOpen ? 'Cerrar menú' : 'Abrir menú'}
+          aria-expanded={menuOpen}
+        >
+          <motion.span
+            animate={menuOpen ? { rotate: 45, y: 8 } : { rotate: 0, y: 0 }}
+            transition={{ duration: 0.2 }}
+            className="block w-6 h-0.5 bg-black origin-center"
+          />
+          <motion.span
+            animate={menuOpen ? { opacity: 0, scaleX: 0 } : { opacity: 1, scaleX: 1 }}
+            transition={{ duration: 0.15 }}
+            className="block w-6 h-0.5 bg-black"
+          />
+          <motion.span
+            animate={menuOpen ? { rotate: -45, y: -8 } : { rotate: 0, y: 0 }}
+            transition={{ duration: 0.2 }}
+            className="block w-6 h-0.5 bg-black origin-center"
+          />
+        </button>
+      </div>
+
+      {/* Mobile menu */}
+      <AnimatePresence>
+        {menuOpen && (
+          <motion.nav
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: 'auto', opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.25, ease: 'easeInOut' }}
+            className="lg:hidden overflow-hidden"
+            style={{ background: '#33B9E5', borderBottom: '3px solid #000' }}
+            aria-label="Menú móvil"
+          >
+            <div className="px-4 py-4 flex flex-col gap-1">
+              {navLinks.map((link, i) => (
+                <motion.button
+                  key={link.id}
+                  initial={{ x: -20, opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
+                  transition={{ delay: i * 0.05, duration: 0.2 }}
+                  onClick={() => handleNav(link.id)}
+                  className="text-left w-full px-4 py-3 font-bold text-black text-base rounded-lg transition-colors duration-150 hover:bg-black hover:text-white active:bg-black active:text-white"
+                >
+                  {link.label}
+                </motion.button>
+              ))}
+              <motion.button
+                initial={{ x: -20, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                transition={{ delay: navLinks.length * 0.05 }}
+                onClick={() => handleNav('inscripciones')}
+                className="mt-2 px-4 py-3 rounded-xl font-bold text-white text-base border-3 border-black shadow-neo text-center transition-all duration-150 active:translate-x-1 active:translate-y-1 active:shadow-none"
+                style={{ background: '#F72585' }}
+              >
+                ¡Inscríbete ahora!
+              </motion.button>
+            </div>
+          </motion.nav>
         )}
-      </nav>
+      </AnimatePresence>
     </header>
   );
-};
-
-const NavButton = ({ onClick, children }) => (
-  <button
-    onClick={onClick}
-    className="text-gray-700 hover:text-vivamus-pink transition-colors font-medium relative group"
-  >
-    {children}
-    <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-vivamus-pink transition-all group-hover:w-full" />
-  </button>
-);
-
-const MobileNavButton = ({ onClick, children }) => (
-  <button
-    onClick={onClick}
-    className="block w-full text-left text-gray-700 hover:text-vivamus-pink hover:bg-vivamus-pink/10 py-3 px-4 rounded-lg transition-all font-medium"
-  >
-    {children}
-  </button>
-);
-
-export default Header;
+}

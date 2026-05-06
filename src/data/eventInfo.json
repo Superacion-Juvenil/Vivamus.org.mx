@@ -1,73 +1,48 @@
 {
   "year": "2026",
-  "name": "Vivamus-Merco 2026",
-  "slogan": "¡Vive los valores, vive la experiencia Vivamus-Merco!",
+  "name": "Carrera VIVAMUS Merco 2026",
+  "slogan": "¡Corre en Familia!",
   "date": "25 de Octubre 2026",
+  "dateISO": "2026-10-25T07:00:00",
   "dateToConfirm": false,
   "location": {
-    "name": "Circuito Valle Oriente",
+    "name": "Circuito Vía Deportiva",
     "city": "Monterrey",
     "state": "Nuevo León",
-    "fullAddress": "Circuito Valle Oriente, Monterrey, N.L."
+    "fullAddress": "Circuito Vía Deportiva, Monterrey, N.L."
   },
-  "startTime": "Por confirmar",
   "distances": [
     {
       "id": "5k",
       "name": "5K",
-      "description": "Distancia perfecta para toda la familia"
+      "description": "Perfecta para toda la familia. Corre con tus hijos, amigos o en pareja.",
+      "color": "pink"
     },
     {
       "id": "10k",
       "name": "10K",
-      "description": "Para corredores intermedios"
+      "description": "El reto intermedio. Para quienes quieren superarse y sentir la adrenalina.",
+      "color": "teal"
     }
   ],
-  "modalities": ["Presencial", "Virtual"],
+  "modalities": ["Presencial"],
   "runnerKit": [
-    "Playera oficial Vivamus-Merco 2026",
-    "Número de competidor con chip de cronometraje",
-    "Medalla finisher",
-    "Hidratación durante el recorrido",
-    "Acceso a zona de convivencia familiar",
-    "Bolsa de regalo de patrocinadores"
+    { "icon": "👕", "item": "Playera oficial VIVAMUS 2026" },
+    { "icon": "📛", "item": "Número con chip de cronometraje" },
+    { "icon": "🥇", "item": "Medalla finisher" },
+    { "icon": "💧", "item": "Hidratación en el recorrido" },
+    { "icon": "👨‍👩‍👧", "item": "Zona de convivencia familiar" },
+    { "icon": "🎁", "item": "Bolsa de regalo de patrocinadores" }
   ],
   "schedule": [
-    {
-      "time": "05:00",
-      "activity": "Apertura de área de corredores"
-    },
-    {
-      "time": "05:30",
-      "activity": "Entrega de kits rezagados"
-    },
-    {
-      "time": "06:00",
-      "activity": "Calentamiento oficial"
-    },
-    {
-      "time": "06:45",
-      "activity": "Salida 10K"
-    },
-    {
-      "time": "07:00",
-      "activity": "Salida 5K"
-    },
-    {
-      "time": "07:30",
-      "activity": "Primeros finalistas 5K"
-    },
-    {
-      "time": "08:00",
-      "activity": "Premiación categorías 5K"
-    },
-    {
-      "time": "08:30",
-      "activity": "Premiación categorías 10K"
-    },
-    {
-      "time": "10:00",
-      "activity": "Cierre del evento"
-    }
+    { "time": "05:00", "activity": "Apertura de área de corredores" },
+    { "time": "05:30", "activity": "Entrega de kits rezagados" },
+    { "time": "06:00", "activity": "Calentamiento oficial" },
+    { "time": "06:45", "activity": "Salida 10K" },
+    { "time": "07:00", "activity": "Salida 5K" },
+    { "time": "07:30", "activity": "Primeros finalistas 5K" },
+    { "time": "08:00", "activity": "Premiación 5K" },
+    { "time": "08:30", "activity": "Premiación 10K" },
+    { "time": "10:00", "activity": "Cierre del evento" }
   ]
 }

@@ -5,24 +5,25 @@
       "name": "PREVENTA",
       "price": 350,
       "currency": "MXN",
-      "validity": "Hasta el 2 de agosto de 2026",
-      "active": true
+      "until": "2026-08-02",
+      "validity": "Hasta el 2 de agosto 2026"
     },
     {
       "id": "regular",
       "name": "REGULAR",
       "price": 390,
       "currency": "MXN",
-      "validity": "Del 3 de agosto al 4 de octubre de 2026",
-      "active": false
+      "from": "2026-08-03",
+      "until": "2026-10-04",
+      "validity": "Del 3 ago al 4 oct 2026"
     },
     {
       "id": "extemporanea",
-      "name": "EXTEMPORANEA",
+      "name": "EXTEMPORÁNEA",
       "price": 450,
       "currency": "MXN",
-      "validity": "Del 5 de octubre al cierre de inscripciones",
-      "active": false
+      "from": "2026-10-05",
+      "validity": "Del 5 oct al cierre"
     }
   ]
 }
