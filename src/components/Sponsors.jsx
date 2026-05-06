@@ -1,5 +1,4 @@
-import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import FloatingDecorators from './ui/FloatingDecorators';
 import sponsors from '../data/sponsors.json';
 
@@ -10,16 +9,7 @@ const fadeUp = {
   transition: { duration: 0.45, ease: 'easeOut' },
 };
 
-const levelConfig = {
-  Diamante: { bg: '#7B2FBE', text: '#fff', emoji: '💎' },
-  Oro:      { bg: '#FFD700', text: '#000', emoji: '🥇' },
-  Plata:    { bg: '#9CA3AF', text: '#fff', emoji: '🥈' },
-  Bronce:   { bg: '#9B5A2A', text: '#fff', emoji: '🥉' },
-  Aliado:   { bg: '#009B9B', text: '#fff', emoji: '🤝' },
-};
-
 export default function Sponsors() {
-  const [openLevel, setOpenLevel] = useState(null);
 
   return (
     <section id="patrocinadores" className="relative py-16 bg-white overflow-hidden">
@@ -57,84 +47,6 @@ export default function Sponsors() {
             <p className="text-white/90 font-bold text-base max-w-xl mx-auto">
               {sponsors.mainSponsor.description}
             </p>
-          </div>
-        </motion.div>
-
-        {/* Sponsorship levels accordion */}
-        <motion.div {...fadeUp} className="mb-10">
-          <h3 className="font-display text-2xl sm:text-3xl text-black mb-6 text-center">
-            Paquetes de Patrocinio
-          </h3>
-          <div className="space-y-3">
-            {sponsors.sponsorLevels.map((level) => {
-              const cfg = levelConfig[level.level] || { bg: '#009B9B', text: '#fff', emoji: '⭐' };
-              const isOpen = openLevel === level.level;
-              return (
-                <div
-                  key={level.level}
-                  className="neo-card rounded-2xl overflow-hidden"
-                >
-                  <button
-                    onClick={() => setOpenLevel(isOpen ? null : level.level)}
-                    className="w-full flex items-center justify-between px-6 py-4 transition-colors duration-150"
-                    style={{ background: isOpen ? cfg.bg : '#fff' }}
-                    aria-expanded={isOpen}
-                  >
-                    <div className="flex items-center gap-3">
-                      <span className="text-xl">{cfg.emoji}</span>
-                      <span
-                        className="font-display text-xl"
-                        style={{ color: isOpen ? cfg.text : '#000' }}
-                      >
-                        {level.level}
-                      </span>
-                      <span
-                        className="text-sm font-bold px-3 py-1 rounded-full border-2 border-black"
-                        style={{ background: isOpen ? '#fff' : cfg.bg, color: isOpen ? '#000' : cfg.text }}
-                      >
-                        {level.investment}
-                      </span>
-                    </div>
-                    <motion.span
-                      animate={{ rotate: isOpen ? 45 : 0 }}
-                      transition={{ duration: 0.2 }}
-                      className="font-bold text-2xl"
-                      style={{ color: isOpen ? cfg.text : '#000' }}
-                    >
-                      +
-                    </motion.span>
-                  </button>
-                  <AnimatePresence initial={false}>
-                    {isOpen && (
-                      <motion.div
-                        key="content"
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: 'auto', opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.25, ease: 'easeInOut' }}
-                        className="overflow-hidden"
-                      >
-                        <div className="px-6 py-4 border-t-3 border-black bg-gray-50">
-                          <ul className="space-y-2">
-                            {level.benefits.map((b, i) => (
-                              <li key={i} className="flex items-center gap-2 text-sm font-bold text-gray-800">
-                                <span
-                                  className="w-5 h-5 rounded-full border-2 border-black flex items-center justify-center text-xs shrink-0"
-                                  style={{ background: cfg.bg, color: cfg.text }}
-                                >
-                                  ✓
-                                </span>
-                                {b}
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </div>
-              );
-            })}
           </div>
         </motion.div>
 
