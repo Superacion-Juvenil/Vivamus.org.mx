@@ -115,11 +115,11 @@ export default function FAQ() {
               ¿Más preguntas? ¡Escríbenos!
             </p>
             <a
-              href="mailto:vivamus@superacionjuvenil.org"
+              href="mailto:carrera@superacionjuvenil.org"
               className="inline-block font-bold text-white px-8 py-3 rounded-full border-3 border-black shadow-neo transition-all duration-150 hover:translate-x-1 hover:translate-y-1 hover:shadow-none active:translate-x-1 active:translate-y-1 active:shadow-none"
               style={{ background: '#F72585' }}
             >
-              vivamus@superacionjuvenil.org →
+              carrera@superacionjuvenil.org →
             </a>
           </motion.div>
         </div>

@@ -138,33 +138,6 @@ export default function EventDetails() {
             </motion.div>
           </motion.div>
 
-          {/* Schedule */}
-          <motion.div {...fadeUp} className="neo-card-lg rounded-2xl p-6 sm:p-8 bg-white">
-            <h3 className="font-display text-2xl sm:text-3xl text-black mb-6 text-center">
-              ⏱️ Cronograma del Día
-            </h3>
-            <div className="max-w-xl mx-auto space-y-2">
-              {eventInfo.schedule.map((item, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.06, duration: 0.3 }}
-                  className="flex items-center gap-4 rounded-xl px-4 py-3 border-2 border-black"
-                  style={{ background: i % 2 === 0 ? '#fff' : '#f9fafb' }}
-                >
-                  <span
-                    className="font-display text-base w-14 text-center px-2 py-1 rounded-lg border-2 border-black shrink-0"
-                    style={{ background: '#F72585', color: '#fff' }}
-                  >
-                    {item.time}
-                  </span>
-                  <span className="text-sm font-bold text-gray-800">{item.activity}</span>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
         </div>
       </section>
       <SectionDivider color="#FFD700" direction="up" height={60} />
