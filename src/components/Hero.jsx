@@ -34,18 +34,19 @@ export default function Hero() {
       <FloatingDecorators colors={['#F72585', '#FFD700', '#009B9B', '#ffffff']} />
 
       {/* Content */}
-      <div className="relative z-10 w-full max-w-4xl mx-auto px-4 flex flex-col items-center text-center gap-5 py-12">
+      <div className="relative z-10 w-full max-w-5xl mx-auto px-4 flex flex-col items-center text-center gap-4 py-12">
 
         {/* Logo — no background box, larger */}
         <motion.div
           initial={{ scale: 0.8, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ duration: 0.6, ease: [0.34, 1.56, 0.64, 1] }}
+          className="-mb-1"
         >
           <img
             src="/logo-vivamus.png"
             alt="Carrera VIVAMUS Merco 2026"
-            className="w-80 sm:w-[28rem] md:w-[34rem] h-auto block mx-auto"
+            className="w-[22rem] sm:w-[34rem] md:w-[44rem] h-auto block mx-auto"
           />
         </motion.div>
 
