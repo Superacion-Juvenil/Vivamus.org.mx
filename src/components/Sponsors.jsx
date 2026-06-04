@@ -35,7 +35,7 @@ export default function Sponsors() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ staggerChildren: 0.15 }}
-          className="flex flex-col items-center gap-10 mb-12"
+          className="flex flex-col sm:flex-row items-center justify-center gap-10 sm:gap-16 mb-12"
         >
           {/* Primer nivel — Merco */}
           <motion.img
