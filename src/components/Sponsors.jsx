@@ -29,19 +29,28 @@ export default function Sponsors() {
           </h2>
         </motion.div>
 
-        {/* Logo — no background box */}
+        {/* Logos — no background box, tiered by sponsorship level */}
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ staggerChildren: 0.15 }}
-          className="flex items-center justify-center mb-12"
+          className="flex flex-col items-center gap-10 mb-12"
         >
+          {/* Primer nivel — Merco */}
           <motion.img
             {...staggerChild}
             src="/logo-merco.jpg"
             alt="Merco"
-            className="max-h-32 max-w-full object-contain"
+            className="max-h-36 max-w-full object-contain"
+          />
+
+          {/* Segundo nivel — Pinturas Osel */}
+          <motion.img
+            {...staggerChild}
+            src="/logo-osel.png"
+            alt="Pinturas Osel"
+            className="max-h-20 max-w-full object-contain"
           />
         </motion.div>
 
