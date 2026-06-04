@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import SectionDivider from './ui/SectionDivider';
 import FloatingDecorators from './ui/FloatingDecorators';
 import eventInfo from '../data/eventInfo.json';
+import links from '../data/links.json';
 
 const fadeUp = {
   initial: { opacity: 0, y: 40 },
@@ -106,36 +107,16 @@ export default function EventDetails() {
             })}
           </motion.div>
 
-          {/* Presencial pill */}
-          <motion.div {...fadeUp} className="flex justify-center mb-10">
-            <div className="inline-flex items-center gap-3 neo-card rounded-full px-6 py-3 bg-white text-black font-bold text-base sm:text-lg">
-              Presencial · Circuito Vía Deportiva, Monterrey
-            </div>
-          </motion.div>
-
-          {/* Kit del corredor */}
-          <motion.div {...fadeUp} className="neo-card-lg rounded-2xl p-6 sm:p-8 mb-10 bg-white">
-            <h3 className="font-display text-2xl sm:text-3xl text-black mb-6 text-center">
-              🎁 Kit del Corredor
-            </h3>
-            <motion.div
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ staggerChildren: 0.08 }}
-              className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3"
+          {/* Convocatoria oficial */}
+          <motion.div {...fadeUp} className="flex justify-center">
+            <a
+              href={links.convocatoria}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-display text-lg sm:text-xl text-white bg-black px-8 py-4 rounded-full border-3 border-black shadow-neo transition-all duration-150 hover:translate-x-1 hover:translate-y-1 hover:shadow-none active:translate-x-1 active:translate-y-1 active:shadow-none"
             >
-              {eventInfo.runnerKit.map(({ icon, item }) => (
-                <motion.div
-                  key={item}
-                  {...staggerChild}
-                  className="flex items-center gap-3 bg-gray-50 rounded-xl p-3 border-2 border-black"
-                >
-                  <span className="text-xl">{icon}</span>
-                  <span className="text-sm font-bold text-gray-800">{item}</span>
-                </motion.div>
-              ))}
-            </motion.div>
+              Descarga la convocatoria oficial aquí
+            </a>
           </motion.div>
 
         </div>

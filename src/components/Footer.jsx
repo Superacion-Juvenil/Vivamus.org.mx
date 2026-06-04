@@ -16,8 +16,8 @@ export default function Footer() {
 
           {/* Logo + social */}
           <div className="flex items-center gap-4">
-            <div className="w-10 h-10 rounded-xl overflow-hidden border-2 border-white/20 shrink-0">
-              <img src="/logo-vivamus.png" alt="Carrera VIVAMUS" className="w-full h-full object-cover" />
+            <div className="w-10 h-10 rounded-xl overflow-hidden border-2 border-white/20 shrink-0 flex items-center justify-center" style={{ background: '#33B9E5' }}>
+              <img src="/logo-vivamus.png" alt="Carrera VIVAMUS" className="w-full h-full object-contain p-1" />
             </div>
             <a
               href="https://www.facebook.com/VivamusMerco"

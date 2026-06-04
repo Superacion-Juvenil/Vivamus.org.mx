@@ -1,29 +1,28 @@
 {
   "phases": [
     {
-      "id": "preventa",
-      "name": "PREVENTA",
-      "price": 350,
-      "currency": "MXN",
-      "until": "2026-08-02",
-      "validity": "Hasta el 2 de agosto 2026"
-    },
-    {
       "id": "regular",
-      "name": "REGULAR",
-      "price": 390,
+      "name": "Regular",
+      "price": 400,
       "currency": "MXN",
-      "from": "2026-08-03",
       "until": "2026-10-04",
-      "validity": "Del 3 ago al 4 oct 2026"
+      "validity": "Hasta el 4 de octubre"
     },
     {
       "id": "extemporanea",
-      "name": "EXTEMPORÁNEA",
+      "name": "Extemporánea",
       "price": 450,
       "currency": "MXN",
       "from": "2026-10-05",
-      "validity": "Del 5 oct al cierre"
+      "validity": "Del 5 de octubre hasta agotar existencias"
+    },
+    {
+      "id": "corredor-con-causa",
+      "name": "Corredor con Causa",
+      "price": 900,
+      "currency": "MXN",
+      "validity": "Hasta agotar existencias"
     }
-  ]
+  ],
+  "note": "+Más costo por comisión en inscripciones en línea"
 }

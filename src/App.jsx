@@ -7,6 +7,7 @@ import About from './components/About';
 import EventDetails from './components/EventDetails';
 import Registration from './components/Registration';
 import Sponsors from './components/Sponsors';
+import Contact from './components/Contact';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <EventDetails />
         <Registration />
         <Sponsors />
+        <Contact />
       </main>
       <Footer />
       <Analytics />
