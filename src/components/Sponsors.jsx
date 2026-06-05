@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import sponsors from '../data/sponsors.json';
 
 const fadeUp = {
   initial: { opacity: 0, y: 40 },
@@ -29,29 +30,36 @@ export default function Sponsors() {
           </h2>
         </motion.div>
 
-        {/* Logos — no background box, tiered by sponsorship level */}
+        {/* Patrocinador principal — Merco */}
+        <motion.div {...fadeUp} className="flex justify-center mb-12">
+          <img
+            src={sponsors.featuredLogo.src}
+            alt={sponsors.featuredLogo.name}
+            className="max-h-36 max-w-full object-contain"
+          />
+        </motion.div>
+
+        {/* Demás patrocinadores — cuadrícula en el orden indicado */}
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ staggerChildren: 0.15 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-10 sm:gap-16 mb-12"
+          transition={{ staggerChildren: 0.1 }}
+          className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 items-center gap-x-8 gap-y-10 mb-12"
         >
-          {/* Primer nivel — Merco */}
-          <motion.img
-            {...staggerChild}
-            src="/logo-merco.jpg"
-            alt="Merco"
-            className="max-h-36 max-w-full object-contain"
-          />
-
-          {/* Segundo nivel — Pinturas Osel */}
-          <motion.img
-            {...staggerChild}
-            src="/logo-osel.png"
-            alt="Pinturas Osel"
-            className="max-h-20 max-w-full object-contain"
-          />
+          {sponsors.logos.map((logo) => (
+            <motion.div
+              key={logo.name}
+              {...staggerChild}
+              className="flex items-center justify-center"
+            >
+              <img
+                src={logo.src}
+                alt={logo.name}
+                className="max-h-20 max-w-[80%] object-contain"
+              />
+            </motion.div>
+          ))}
         </motion.div>
 
         {/* CTA */}
