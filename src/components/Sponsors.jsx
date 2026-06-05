@@ -29,37 +29,29 @@ export default function Sponsors() {
           </h2>
         </motion.div>
 
-        {/* Logo cards */}
+        {/* Logos — no background box, tiered by sponsorship level */}
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ staggerChildren: 0.15 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-8 mb-12"
+          className="flex flex-col sm:flex-row items-center justify-center gap-10 sm:gap-16 mb-12"
         >
-          {/* Merco */}
-          <motion.div
+          {/* Primer nivel — Merco */}
+          <motion.img
             {...staggerChild}
-            className="neo-card rounded-2xl p-4 flex items-center justify-center w-full sm:w-72 h-40 transition-all duration-150 hover:-translate-y-1 hover:shadow-neo-lg"
-          >
-            <img
-              src="/logo-merco.jpg"
-              alt="Merco"
-              className="max-h-32 max-w-full object-contain"
-            />
-          </motion.div>
+            src="/logo-merco.jpg"
+            alt="Merco"
+            className="max-h-36 max-w-full object-contain"
+          />
 
-          {/* Superación Juvenil */}
-          <motion.div
+          {/* Segundo nivel — Pinturas Osel */}
+          <motion.img
             {...staggerChild}
-            className="neo-card rounded-2xl p-8 flex items-center justify-center w-full sm:w-72 h-40 transition-all duration-150 hover:-translate-y-1 hover:shadow-neo-lg"
-          >
-            <img
-              src="/logo-sj.jpg"
-              alt="Superación Juvenil ABP"
-              className="max-h-24 max-w-full object-contain"
-            />
-          </motion.div>
+            src="/logo-osel.png"
+            alt="Pinturas Osel"
+            className="max-h-20 max-w-full object-contain"
+          />
         </motion.div>
 
         {/* CTA */}

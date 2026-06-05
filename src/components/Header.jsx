@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import links from '../data/links.json';
 
 const navLinks = [
   { id: 'inicio', label: 'Inicio' },
@@ -40,9 +41,7 @@ export default function Header() {
           className="flex items-center focus:outline-none"
           aria-label="Ir al inicio"
         >
-          <div className="h-10 w-10 rounded-xl overflow-hidden transition-transform duration-200 hover:scale-105 border-2 border-black/10">
-            <img src="/logo-vivamus.png" alt="VIVAMUS" className="w-full h-full object-cover" />
-          </div>
+          <img src="/logo-vivamus.png" alt="VIVAMUS" className="h-10 w-auto object-contain transition-transform duration-200 hover:scale-105" />
         </button>
 
         {/* Desktop nav */}
@@ -56,13 +55,15 @@ export default function Header() {
               {link.label}
             </button>
           ))}
-          <button
-            onClick={() => handleNav('inscripciones')}
+          <a
+            href={links.registration}
+            target="_blank"
+            rel="noopener noreferrer"
             className="ml-3 px-5 py-2 rounded-full text-sm font-bold text-white border-3 border-black shadow-neo transition-all duration-150 hover:translate-x-1 hover:translate-y-1 hover:shadow-none"
             style={{ background: '#F72585' }}
           >
             ¡Inscríbete!
-          </button>
+          </a>
         </nav>
 
         {/* Mobile hamburger */}
@@ -115,16 +116,19 @@ export default function Header() {
                   {link.label}
                 </motion.button>
               ))}
-              <motion.button
+              <motion.a
                 initial={{ x: -20, opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
                 transition={{ delay: navLinks.length * 0.05 }}
-                onClick={() => handleNav('inscripciones')}
+                href={links.registration}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setMenuOpen(false)}
                 className="mt-2 px-4 py-3 rounded-xl font-bold text-white text-base border-3 border-black shadow-neo text-center transition-all duration-150 active:translate-x-1 active:translate-y-1 active:shadow-none"
                 style={{ background: '#F72585' }}
               >
                 ¡Inscríbete ahora!
-              </motion.button>
+              </motion.a>
             </div>
           </motion.nav>
         )}

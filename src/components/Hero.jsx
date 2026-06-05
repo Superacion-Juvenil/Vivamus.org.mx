@@ -34,35 +34,34 @@ export default function Hero() {
       <FloatingDecorators colors={['#F72585', '#FFD700', '#009B9B', '#ffffff']} />
 
       {/* Content */}
-      <div className="relative z-10 w-full max-w-4xl mx-auto px-4 flex flex-col items-center text-center gap-5 py-12">
+      <div className="relative z-10 w-full max-w-5xl mx-auto px-4 flex flex-col items-center text-center gap-4 py-12">
 
-        {/* Logo */}
+        {/* Logo — no background box, larger */}
         <motion.div
           initial={{ scale: 0.8, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ duration: 0.6, ease: [0.34, 1.56, 0.64, 1] }}
+          className="-mb-1"
         >
-          <div className="w-64 sm:w-80 md:w-96 mx-auto rounded-3xl overflow-hidden shadow-neo-lg">
-            <img
-              src="/logo-vivamus.png"
-              alt="Carrera VIVAMUS Merco 2026"
-              className="w-full h-auto block"
-            />
-          </div>
+          <img
+            src="/logo-vivamus.png"
+            alt="Carrera VIVAMUS Merco 2026"
+            className="w-[22rem] sm:w-[34rem] md:w-[44rem] h-auto block mx-auto"
+          />
         </motion.div>
 
-        {/* Tagline */}
+        {/* Tagline — smaller than the date */}
         <motion.p
           {...fadeUp(0.3)}
-          className="font-display text-3xl sm:text-4xl md:text-5xl text-white leading-tight max-w-xl"
-          style={{ textShadow: '3px 3px 0 #000' }}
+          className="font-display text-xl sm:text-2xl text-white leading-tight max-w-xl"
+          style={{ textShadow: '2px 2px 0 #000' }}
         >
           ¡Corre en Familia!
         </motion.p>
 
-        {/* Date badge */}
+        {/* Date badge — larger, prominent */}
         <motion.div {...fadeUp(0.45)}>
-          <span className="inline-block bg-black text-white font-bold px-5 py-2 rounded-full text-sm sm:text-base border-3 border-black">
+          <span className="inline-block bg-black text-white font-bold px-6 py-3 rounded-full text-base sm:text-xl border-3 border-black">
             📍 25 de Octubre 2026 · Circuito Vía Deportiva, Monterrey
           </span>
         </motion.div>

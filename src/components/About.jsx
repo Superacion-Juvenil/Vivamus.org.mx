@@ -1,8 +1,8 @@
 import { motion } from 'framer-motion';
 import FloatingDecorators from './ui/FloatingDecorators';
-import CountUp from './ui/CountUp';
 import SectionDivider from './ui/SectionDivider';
 import about from '../data/about.json';
+import links from '../data/links.json';
 
 const fadeUp = {
   initial: { opacity: 0, y: 40 },
@@ -23,12 +23,6 @@ const staggerChild = {
   whileInView: { opacity: 1, y: 0 },
   transition: { duration: 0.4 },
 };
-
-const stats = [
-  { value: 15, suffix: '', label: 'Ediciones', bg: '#F72585', text: '#fff' },
-  { value: 4000, suffix: '+', label: 'Corredores', bg: '#FFD700', text: '#000' },
-  { value: 300, suffix: '+', label: 'Voluntarios', bg: '#009B9B', text: '#fff' },
-];
 
 const causeDescription = 'Los fondos recaudados apoyan los programas de Superación Juvenil ABP, que tiene como objetivo fundar, administrar, dirigir, crear y desarrollar Centros de Valores para jóvenes a través de los cuales se impulse orientación social con programas de formación de valores que fortalezcan su desarrollo humano y las relaciones en el seno familiar y en el medio social en que habiten.';
 
@@ -54,29 +48,20 @@ export default function About() {
           {/* Two column layout */}
           <div className="grid lg:grid-cols-2 gap-8 items-start mb-12">
 
-            {/* Left — description + stats */}
-            <div>
-              <motion.p {...fadeUp} className="text-lg sm:text-xl text-gray-800 leading-relaxed mb-8">
+            {/* Left — description + mission + vision */}
+            <div className="flex flex-col gap-6">
+              <motion.p {...fadeUp} className="text-lg sm:text-xl text-gray-800 leading-relaxed">
                 {about.whatIs.description}
               </motion.p>
 
-              {/* Stat cards */}
-              <motion.div {...stagger} className="grid grid-cols-3 gap-3">
-                {stats.map(({ value, suffix, label, bg, text }) => (
-                  <motion.div
-                    key={label}
-                    {...staggerChild}
-                    className="neo-card rounded-2xl p-4 text-center transition-all duration-150 hover:-translate-y-1 hover:shadow-neo-lg active:-translate-y-1"
-                    style={{ background: bg }}
-                  >
-                    <div className="font-display text-2xl sm:text-3xl" style={{ color: text }}>
-                      <CountUp end={value} suffix={suffix} />
-                    </div>
-                    <div className="text-xs font-bold mt-1" style={{ color: text, opacity: 0.85 }}>
-                      {label}
-                    </div>
-                  </motion.div>
-                ))}
+              <motion.div {...fadeUp}>
+                <h3 className="font-display text-2xl text-black mb-1">{about.mission.title}</h3>
+                <p className="text-gray-700 leading-relaxed">{about.mission.description}</p>
+              </motion.div>
+
+              <motion.div {...fadeUp}>
+                <h3 className="font-display text-2xl text-black mb-1">{about.vision.title}</h3>
+                <p className="text-gray-700 leading-relaxed">{about.vision.description}</p>
               </motion.div>
             </div>
 
@@ -105,32 +90,36 @@ export default function About() {
                 <p className="text-white/90 text-sm font-medium mt-4 leading-relaxed">
                   {causeDescription}
                 </p>
+
+                <a
+                  href={links.superacionJuvenil}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block mt-5 font-bold text-white underline underline-offset-4 decoration-2 hover:text-black transition-colors"
+                >
+                  Conoce más sobre Superación Juvenil. Click aquí →
+                </a>
               </div>
             </motion.div>
           </div>
 
-          {/* Mission & Vision */}
-          <motion.div {...stagger} className="grid sm:grid-cols-2 gap-4">
-            <motion.div
-              {...staggerChild}
-              className="neo-card rounded-2xl p-6 transition-all duration-150 hover:-translate-y-1 hover:shadow-neo-lg"
-            >
-              <div className="w-10 h-10 rounded-xl border-3 border-black flex items-center justify-center mb-4 text-xl" style={{ background: '#33B9E5' }}>
-                🎯
-              </div>
-              <h4 className="font-display text-xl text-black mb-2">{about.mission.title}</h4>
-              <p className="text-gray-700 text-sm leading-relaxed">{about.mission.description}</p>
-            </motion.div>
-            <motion.div
-              {...staggerChild}
-              className="neo-card rounded-2xl p-6 transition-all duration-150 hover:-translate-y-1 hover:shadow-neo-lg"
-            >
-              <div className="w-10 h-10 rounded-xl border-3 border-black flex items-center justify-center mb-4 text-xl" style={{ background: '#F72585' }}>
-                👁️
-              </div>
-              <h4 className="font-display text-xl text-black mb-2">{about.vision.title}</h4>
-              <p className="text-gray-700 text-sm leading-relaxed">{about.vision.description}</p>
-            </motion.div>
+          {/* Nuestros Pilares */}
+          <motion.h3 {...fadeUp} className="font-display text-3xl sm:text-4xl text-black text-center mb-8">
+            Nuestros Pilares
+          </motion.h3>
+          <motion.div {...stagger} className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {about.pillars.map((pillar) => (
+              <motion.div
+                {...staggerChild}
+                key={pillar.title}
+                className="rounded-2xl border-3 border-black shadow-neo p-6 transition-all duration-150 hover:-translate-y-1 hover:shadow-neo-lg"
+                style={{ background: pillar.bg, color: pillar.text }}
+              >
+                <div className="text-3xl mb-3">{pillar.icon}</div>
+                <h4 className="font-display text-xl mb-2">{pillar.title}</h4>
+                <p className="text-sm leading-relaxed" style={{ opacity: 0.9 }}>{pillar.description}</p>
+              </motion.div>
+            ))}
           </motion.div>
         </div>
       </section>

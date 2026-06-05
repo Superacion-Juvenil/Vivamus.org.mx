@@ -20,13 +20,43 @@
     ]
   },
   "mission": {
-    "title": "Misión del Evento",
+    "title": "Nuestra Misión",
     "description": "Promover los valores en la sociedad a través del evento deportivo y familiar más animado de Nuevo León."
   },
   "vision": {
-    "title": "Visión del Evento",
+    "title": "Nuestra Visión",
     "description": "Ser el evento número uno en el estado de Nuevo León para las familias mexicanas, caracterizado por su creatividad y animación, que inspira además a otros a unirse a la promoción de valores."
   },
+  "pillars": [
+    {
+      "title": "Experiencia",
+      "icon": "🎉",
+      "bg": "#33B9E5",
+      "text": "#000",
+      "description": "Invita al participante a vivir algo diferente durante todo el evento, desde el momento en que se inscribe hasta que sale el último número premiado en la rifa. Desde la entrega de números ofrecemos un ambiente donde los corredores llevan a su familia, se divierten, se toman fotos y participan en actividades para niños."
+    },
+    {
+      "title": "Animación",
+      "icon": "📣",
+      "bg": "#FFD700",
+      "text": "#000",
+      "description": "Durante todo el recorrido los voluntarios animan a los participantes a llegar a la meta. La animación es personalizada: el número de corredor lleva escrito su nombre o apodo, para que el voluntario lo anime por su nombre. Un ambiente de fiesta, colores, alegría y atención."
+    },
+    {
+      "title": "Voluntariado",
+      "icon": "🤝",
+      "bg": "#F72585",
+      "text": "#fff",
+      "description": "Los voluntarios hacen posible este proyecto con su donación de tiempo, esfuerzo y alegría. Cada año, hombres y mujeres decididos a ser parte del cambio se suman al desarrollo de la carrera."
+    },
+    {
+      "title": "Corredor con Causa",
+      "icon": "🏃",
+      "bg": "#009B9B",
+      "text": "#fff",
+      "description": "A cada corredor se le entrega un banner con la leyenda \"Yo corro por los valores y por...\" donde se le invita a anotar la causa por la cual va a correr VIVAMUS."
+    }
+  ],
   "superacionJuvenil": {
     "name": "Superación Juvenil ABP",
     "mission": "Formar líderes juveniles de impacto social que impulsen una sociedad ética.",

@@ -47,22 +47,22 @@ src/
 
 1. Instala las dependencias:
 ```bash
-yarn install
+pnpm install
 ```
 
 2. Inicia el servidor de desarrollo:
 ```bash
-yarn dev
+pnpm dev
 ```
 
 3. Abre tu navegador en `http://localhost:5173`
 
 ## Scripts Disponibles
 
-- `yarn dev` - Inicia el servidor de desarrollo
-- `yarn build` - Construye la aplicación para producción
-- `yarn preview` - Previsualiza la build de producción
-- `yarn lint` - Ejecuta el linter
+- `pnpm dev` - Inicia el servidor de desarrollo
+- `pnpm build` - Construye la aplicación para producción
+- `pnpm preview` - Previsualiza la build de producción
+- `pnpm lint` - Ejecuta el linter
 
 ## Características
 

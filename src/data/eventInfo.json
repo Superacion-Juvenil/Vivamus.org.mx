@@ -27,13 +27,14 @@
   ],
   "modalities": ["Presencial"],
   "runnerKit": [
-    { "icon": "👕", "item": "Playera Oficial Vivamus-Merco 2026" },
-    { "icon": "📛", "item": "Número con chip de cronometraje" },
-    { "icon": "🥇", "item": "Medalla finisher" },
-    { "icon": "💧", "item": "Hidratación en el recorrido" },
-    { "icon": "👨‍👩‍👧", "item": "Zona de convivencia familiar" },
-    { "icon": "🎁", "item": "Bolsa de regalo de patrocinadores" }
+    { "icon": "👕", "item": "Playera oficial", "exclusive": false },
+    { "icon": "📛", "item": "Número de corredor con chip", "exclusive": false },
+    { "icon": "✨", "item": "Playera edición limitada", "exclusive": true },
+    { "icon": "🥇", "item": "Medalla conmemorativa", "exclusive": false },
+    { "icon": "🎒", "item": "Kit de recuperación", "exclusive": false },
+    { "icon": "⭐", "item": "Zona exclusiva", "exclusive": true }
   ],
+  "runnerKitNote": "** Beneficios exclusivos para Corredor con Causa",
   "schedule": [
     { "time": "05:00", "activity": "Apertura de área de corredores" },
     { "time": "05:30", "activity": "Entrega de kits rezagados" },
