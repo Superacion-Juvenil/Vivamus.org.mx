@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import FloatingDecorators from './ui/FloatingDecorators';
 import Countdown from './ui/Countdown';
 import eventInfo from '../data/eventInfo.json';
+import links from '../data/links.json';
 
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 30 },
@@ -98,13 +99,15 @@ export default function Hero() {
 
         {/* CTAs */}
         <motion.div {...fadeUp(0.85)} className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
-          <button
-            onClick={() => scrollTo('inscripciones')}
+          <a
+            href={links.registration}
+            target="_blank"
+            rel="noopener noreferrer"
             className="font-display text-lg sm:text-xl text-white px-8 py-3 rounded-full border-3 border-black shadow-neo transition-all duration-150 hover:translate-x-1 hover:translate-y-1 hover:shadow-none active:translate-x-1 active:translate-y-1 active:shadow-none pulse-badge"
             style={{ background: '#F72585' }}
           >
             ¡Inscríbete ahora!
-          </button>
+          </a>
           <button
             onClick={() => scrollTo('evento')}
             className="font-bold text-base sm:text-lg text-black px-8 py-3 rounded-full border-3 border-black bg-white shadow-neo transition-all duration-150 hover:translate-x-1 hover:translate-y-1 hover:shadow-none active:translate-x-1 active:translate-y-1 active:shadow-none"
