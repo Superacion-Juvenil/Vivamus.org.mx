@@ -64,6 +64,7 @@
   },
   "logos": [
     { "name": "Nescafé", "src": "/logo-nescafe.png" },
+    { "name": "FUD Cuida-t+", "src": "/logo-fud.png" },
     { "name": "Gamesa", "src": "/logo-gamesa.png" },
     { "name": "Hogar", "src": "/logo-hogar.png" },
     { "name": "Bafar", "src": "/logo-bafar.png" },
