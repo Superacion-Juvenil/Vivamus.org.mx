@@ -35,7 +35,20 @@
     font-weight: 800;
   }
 
-  /* Neo-brutalist card */
+  /* Editorial card — soft elevation instead of comic hard-shadow */
+  .card {
+    @apply bg-white rounded-2xl border border-ink/[0.06] shadow-card;
+  }
+
+  .card-lg {
+    @apply bg-white rounded-3xl border border-ink/[0.06] shadow-card-lg;
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-card-hover;
+  }
+
+  /* Legacy neo-brutalist card (kept for any remaining usages) */
   .neo-card {
     @apply bg-white border-3 border-black shadow-neo;
   }
@@ -44,7 +57,29 @@
     @apply bg-white border-3 border-black shadow-neo-lg;
   }
 
-  /* Neo-brutalist button press effect */
+  /* Primary CTA — solid pill, soft elevation, subtle lift on hover */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 font-display text-lg tracking-wide rounded-full px-8 py-3.5 transition-all duration-200 ease-out shadow-card;
+  }
+
+  .btn:hover {
+    @apply shadow-card-hover -translate-y-0.5;
+  }
+
+  .btn:active {
+    @apply translate-y-0 shadow-card;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-2 font-bold rounded-full px-8 py-3.5 border-2 border-ink/15 bg-white text-ink transition-all duration-200 ease-out hover:border-ink/30 hover:-translate-y-0.5 hover:shadow-card;
+  }
+
+  /* Section eyebrow label */
+  .eyebrow {
+    @apply inline-block font-bold text-xs uppercase tracking-[0.2em] px-4 py-1.5 rounded-full mb-4;
+  }
+
+  /* Neo-brutalist button press effect (legacy) */
   .neo-btn {
     @apply border-3 border-black shadow-neo font-bold transition-all duration-150 cursor-pointer;
   }

@@ -30,18 +30,20 @@ export default function Header() {
     <header
       className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
       style={{
-        background: scrolled ? '#33B9E5' : 'transparent',
-        borderBottom: scrolled ? '3px solid #000' : 'none',
+        background: scrolled ? 'rgba(255,255,255,0.85)' : 'transparent',
+        backdropFilter: scrolled ? 'blur(12px)' : 'none',
+        borderBottom: scrolled ? '1px solid rgba(11,18,32,0.08)' : '1px solid transparent',
+        boxShadow: scrolled ? '0 4px 24px -8px rgba(15,23,42,0.10)' : 'none',
       }}
     >
-      <div className="max-w-7xl mx-auto px-4 flex items-center justify-between h-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between h-16 sm:h-[4.5rem]">
         {/* Logo */}
         <button
           onClick={() => handleNav('inicio')}
           className="flex items-center focus:outline-none"
           aria-label="Ir al inicio"
         >
-          <img src="/logo-vivamus.png" alt="VIVAMUS" className="h-10 w-auto object-contain transition-transform duration-200 hover:scale-105" />
+          <img src="/logo-vivamus.png" alt="VIVAMUS" className="h-9 sm:h-10 w-auto object-contain transition-transform duration-200 hover:scale-105" />
         </button>
 
         {/* Desktop nav */}
@@ -50,7 +52,7 @@ export default function Header() {
             <button
               key={link.id}
               onClick={() => handleNav(link.id)}
-              className="px-3 py-1.5 font-bold text-black text-sm rounded-md transition-all duration-150 hover:bg-black hover:text-white"
+              className="px-4 py-2 font-semibold text-ink/80 text-sm rounded-full transition-colors duration-150 hover:bg-ink/5 hover:text-ink"
             >
               {link.label}
             </button>
@@ -59,10 +61,10 @@ export default function Header() {
             href={links.registration}
             target="_blank"
             rel="noopener noreferrer"
-            className="ml-3 px-5 py-2 rounded-full text-sm font-bold text-white border-3 border-black shadow-neo transition-all duration-150 hover:translate-x-1 hover:translate-y-1 hover:shadow-none"
-            style={{ background: '#F72585' }}
+            className="ml-3 px-6 py-2.5 rounded-full text-sm font-bold text-white transition-all duration-200 shadow-card hover:shadow-card-hover hover:-translate-y-0.5"
+            style={{ background: 'linear-gradient(135deg, #F72585, #d81e73)' }}
           >
-            ¡Inscríbete!
+            Inscríbete
           </a>
         </nav>
 
@@ -74,19 +76,19 @@ export default function Header() {
           aria-expanded={menuOpen}
         >
           <motion.span
-            animate={menuOpen ? { rotate: 45, y: 8 } : { rotate: 0, y: 0 }}
+            animate={menuOpen ? { rotate: 45, y: 7 } : { rotate: 0, y: 0 }}
             transition={{ duration: 0.2 }}
-            className="block w-6 h-0.5 bg-black origin-center"
+            className="block w-6 h-0.5 rounded-full bg-ink origin-center"
           />
           <motion.span
             animate={menuOpen ? { opacity: 0, scaleX: 0 } : { opacity: 1, scaleX: 1 }}
             transition={{ duration: 0.15 }}
-            className="block w-6 h-0.5 bg-black"
+            className="block w-6 h-0.5 rounded-full bg-ink"
           />
           <motion.span
-            animate={menuOpen ? { rotate: -45, y: -8 } : { rotate: 0, y: 0 }}
+            animate={menuOpen ? { rotate: -45, y: -7 } : { rotate: 0, y: 0 }}
             transition={{ duration: 0.2 }}
-            className="block w-6 h-0.5 bg-black origin-center"
+            className="block w-6 h-0.5 rounded-full bg-ink origin-center"
           />
         </button>
       </div>
@@ -99,8 +101,7 @@ export default function Header() {
             animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.25, ease: 'easeInOut' }}
-            className="lg:hidden overflow-hidden"
-            style={{ background: '#33B9E5', borderBottom: '3px solid #000' }}
+            className="lg:hidden overflow-hidden bg-white/95 backdrop-blur-md border-b border-ink/[0.06]"
             aria-label="Menú móvil"
           >
             <div className="px-4 py-4 flex flex-col gap-1">
@@ -111,7 +112,7 @@ export default function Header() {
                   animate={{ x: 0, opacity: 1 }}
                   transition={{ delay: i * 0.05, duration: 0.2 }}
                   onClick={() => handleNav(link.id)}
-                  className="text-left w-full px-4 py-3 font-bold text-black text-base rounded-lg transition-colors duration-150 hover:bg-black hover:text-white active:bg-black active:text-white"
+                  className="text-left w-full px-4 py-3 font-semibold text-ink text-base rounded-xl transition-colors duration-150 hover:bg-ink/5"
                 >
                   {link.label}
                 </motion.button>
@@ -124,8 +125,8 @@ export default function Header() {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setMenuOpen(false)}
-                className="mt-2 px-4 py-3 rounded-xl font-bold text-white text-base border-3 border-black shadow-neo text-center transition-all duration-150 active:translate-x-1 active:translate-y-1 active:shadow-none"
-                style={{ background: '#F72585' }}
+                className="mt-2 px-4 py-3.5 rounded-xl font-bold text-white text-base text-center shadow-card"
+                style={{ background: 'linear-gradient(135deg, #F72585, #d81e73)' }}
               >
                 ¡Inscríbete ahora!
               </motion.a>

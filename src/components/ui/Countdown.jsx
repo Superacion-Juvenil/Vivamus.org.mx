@@ -18,12 +18,12 @@ function getTimeLeft(target) {
 function Block({ value, label }) {
   return (
     <div className="flex flex-col items-center">
-      <div className="bg-white border-3 border-black shadow-neo w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center rounded-lg">
-        <span className="font-display text-2xl sm:text-3xl text-black leading-none">
+      <div className="bg-white/95 backdrop-blur-sm shadow-card w-14 h-14 sm:w-[4.5rem] sm:h-[4.5rem] flex items-center justify-center rounded-xl">
+        <span className="font-display text-xl sm:text-2xl text-ink leading-none">
           {pad(value)}
         </span>
       </div>
-      <span className="mt-1 text-xs sm:text-sm font-bold text-black uppercase tracking-wide">
+      <span className="mt-1.5 text-[0.65rem] sm:text-xs font-bold text-white/80 uppercase tracking-wide">
         {label}
       </span>
     </div>
@@ -41,11 +41,11 @@ export default function Countdown({ target }) {
   return (
     <div className="flex items-end gap-2 sm:gap-3 justify-center">
       <Block value={time.days} label="días" />
-      <span className="text-black font-display text-2xl mb-4">:</span>
+      <span className="text-white/60 font-display text-xl mb-3.5">:</span>
       <Block value={time.hours} label="horas" />
-      <span className="text-black font-display text-2xl mb-4">:</span>
+      <span className="text-white/60 font-display text-xl mb-3.5">:</span>
       <Block value={time.minutes} label="min" />
-      <span className="text-black font-display text-2xl mb-4">:</span>
+      <span className="text-white/60 font-display text-xl mb-3.5">:</span>
       <Block value={time.seconds} label="seg" />
     </div>
   );
