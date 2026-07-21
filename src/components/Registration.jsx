@@ -1,15 +1,13 @@
 import { motion } from 'framer-motion';
-import SectionDivider from './ui/SectionDivider';
-import FloatingDecorators from './ui/FloatingDecorators';
 import pricing from '../data/pricing.json';
 import eventInfo from '../data/eventInfo.json';
 import links from '../data/links.json';
 
 const fadeUp = {
-  initial: { opacity: 0, y: 40 },
+  initial: { opacity: 0, y: 32 },
   whileInView: { opacity: 1, y: 0 },
   viewport: { once: true, margin: '-60px' },
-  transition: { duration: 0.45, ease: 'easeOut' },
+  transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] },
 };
 
 const staggerChild = {
@@ -19,128 +17,136 @@ const staggerChild = {
   transition: { duration: 0.4 },
 };
 
-// Center card is highlighted white & elevated; side cards are yellow (per design).
-function cardStyle(index, total) {
-  const isCenter = index === Math.floor(total / 2);
-  return {
-    background: isCenter ? '#fff' : '#FFD700',
-    transform: isCenter ? 'scale(1.05)' : 'scale(1)',
-    boxShadow: isCenter ? '6px 6px 0 #000' : '4px 4px 0 #000',
-  };
+function isActivePhase(phase) {
+  if (!phase.until && !phase.from) return false;
+  const now = new Date();
+  if (phase.until && now > new Date(phase.until)) return false;
+  if (phase.from && now < new Date(phase.from)) return false;
+  return true;
 }
 
 export default function Registration() {
   const phases = pricing.phases;
 
   return (
-    <>
-      <section
-        id="inscripciones"
-        className="relative py-16 overflow-hidden"
-        style={{ background: '#F72585' }}
-      >
-        <FloatingDecorators colors={['#FFD700', '#ffffff', '#33B9E5', '#000', '#FFD700', '#ffffff', '#33B9E5', '#000']} />
+    <section
+      id="inscripciones"
+      className="relative py-20 sm:py-28 overflow-hidden"
+      style={{ background: 'linear-gradient(160deg, #F72585 0%, #c31b6b 100%)' }}
+    >
+      <div className="relative z-10 max-w-6xl mx-auto px-4">
 
-        <div className="relative z-10 max-w-6xl mx-auto px-4">
+        {/* Heading */}
+        <motion.div {...fadeUp} className="text-center mb-12">
+          <span className="eyebrow bg-white/15 text-white">Inscripciones</span>
+          <h2 className="font-display text-4xl sm:text-5xl md:text-6xl text-white mb-3">
+            ¡Participa con nosotros!
+          </h2>
+          <p className="text-white/85 text-base sm:text-lg font-medium">
+            Inscripciones abiertas a partir del 5 de junio en As Deporte
+          </p>
+        </motion.div>
 
-          {/* Heading */}
-          <motion.div {...fadeUp} className="text-center mb-10">
-            <span className="inline-block font-bold text-xs uppercase tracking-widest px-4 py-1 rounded-full border-3 border-black mb-4 bg-black text-white">
-              INSCRIPCIONES
-            </span>
-            <h2 className="font-display text-4xl sm:text-5xl md:text-6xl text-white text-shadow-neo mb-4">
-              ¡Participa con nosotros!
-            </h2>
-            <p className="font-display text-xl sm:text-2xl text-white/90" style={{ textShadow: '2px 2px 0 #000' }}>
-              Inscripciones abiertas a partir del 5 de junio en As Deporte
-            </p>
+        {/* Pricing cards */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ staggerChildren: 0.1 }}
+          className="grid sm:grid-cols-3 gap-5 sm:gap-6 items-stretch max-w-4xl mx-auto"
+        >
+          {phases.map((phase) => {
+            const active = isActivePhase(phase);
+            const special = !phase.until && !phase.from;
+            const highlighted = active || special;
+            return (
+              <motion.div
+                key={phase.id}
+                {...staggerChild}
+                className={`rounded-2xl p-6 sm:p-7 text-center flex flex-col justify-center relative ${
+                  highlighted
+                    ? `bg-white shadow-card-lg sm:scale-105 ${special ? 'ring-2 ring-yellow' : ''}`
+                    : 'bg-white/10 backdrop-blur-sm border border-white/20'
+                }`}
+              >
+                {(active || special) && (
+                  <span
+                    className={`absolute -top-3 left-1/2 -translate-x-1/2 eyebrow mb-0 whitespace-nowrap px-3 py-1 ${
+                      special ? 'bg-yellow text-ink' : 'bg-teal text-white'
+                    }`}
+                  >
+                    {special ? 'Con causa ✨' : 'Precio actual'}
+                  </span>
+                )}
+                <h3 className={`font-display text-xl sm:text-2xl mb-2 ${highlighted ? 'text-ink' : 'text-white'}`}>
+                  {phase.name}
+                </h3>
+                <div className={`font-display text-4xl sm:text-5xl mb-1 ${highlighted ? 'text-ink' : 'text-white'}`}>
+                  ${phase.price}
+                </div>
+                <p className={`text-xs font-semibold mt-2 ${highlighted ? 'text-ink/50' : 'text-white/70'}`}>
+                  {phase.validity}
+                </p>
+              </motion.div>
+            );
+          })}
+        </motion.div>
+
+        {/* Commission note */}
+        {pricing.note && (
+          <motion.p {...fadeUp} className="text-center text-white/75 font-medium text-sm mt-6">
+            {pricing.note}
+          </motion.p>
+        )}
+
+        {/* Inscríbete button */}
+        <motion.div {...fadeUp} className="flex justify-center mt-9">
+          <a
+            href={links.registration}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn text-ink bg-white"
+          >
+            ¡Inscríbete aquí!
+          </a>
+        </motion.div>
+
+        {/* Tu kit incluye */}
+        <div className="mt-16 sm:mt-20">
+          <motion.div {...fadeUp} className="text-center mb-8">
+            <h3 className="font-display text-2xl sm:text-3xl text-white">
+              Tu kit incluye
+            </h3>
           </motion.div>
 
-          {/* Pricing cards */}
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            transition={{ staggerChildren: 0.12 }}
-            className="grid sm:grid-cols-3 gap-4 sm:gap-6 items-center"
+            transition={{ staggerChildren: 0.06 }}
+            className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 max-w-4xl mx-auto"
           >
-            {phases.map((phase, index) => (
+            {eventInfo.runnerKit.map(({ icon, item, exclusive }) => (
               <motion.div
-                key={phase.id}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4 }}
-                className="rounded-2xl border-3 border-black p-6 text-center"
-                style={cardStyle(index, phases.length)}
+                key={item}
+                {...staggerChild}
+                className="flex items-center gap-3 bg-white/10 backdrop-blur-sm text-white rounded-xl px-5 py-3.5 border border-white/15"
               >
-                <h3 className="font-display text-xl sm:text-2xl text-black mb-3">{phase.name}</h3>
-                <div className="font-display text-4xl sm:text-5xl text-black mb-1">
-                  ${phase.price}.00
-                </div>
-                <p className="text-xs font-bold text-gray-700 mt-2">{phase.validity}</p>
+                <span className="text-xl">{icon}</span>
+                <span className="text-sm font-semibold">
+                  {item}{exclusive && ' ✨'}
+                </span>
               </motion.div>
             ))}
           </motion.div>
 
-          {/* Commission note */}
-          {pricing.note && (
-            <motion.p {...fadeUp} className="text-center text-white font-bold text-sm mt-6">
-              {pricing.note}
+          {eventInfo.runnerKitNote && (
+            <motion.p {...fadeUp} className="text-center text-white/65 font-medium text-xs mt-5">
+              {eventInfo.runnerKitNote}
             </motion.p>
           )}
-
-          {/* Inscríbete button */}
-          <motion.div {...fadeUp} className="flex justify-center mt-8">
-            <a
-              href={links.registration}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-display text-xl sm:text-2xl text-black px-10 py-4 rounded-full border-3 border-black shadow-neo transition-all duration-150 hover:translate-x-1 hover:translate-y-1 hover:shadow-none active:translate-x-1 active:translate-y-1 active:shadow-none pulse-badge"
-              style={{ background: '#FFD700' }}
-            >
-              ¡Inscríbete aquí!
-            </a>
-          </motion.div>
-
-          {/* Tu kit incluye */}
-          <div className="mt-14">
-            <motion.div {...fadeUp} className="flex justify-center mb-6">
-              <span className="font-display text-lg sm:text-xl text-white bg-black px-8 py-3 rounded-full border-3 border-black">
-                TU KIT INCLUYE:
-              </span>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ staggerChildren: 0.08 }}
-              className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 max-w-4xl mx-auto"
-            >
-              {eventInfo.runnerKit.map(({ icon, item, exclusive }) => (
-                <motion.div
-                  key={item}
-                  {...staggerChild}
-                  className="flex items-center gap-3 bg-black text-white rounded-full px-5 py-3 border-3 border-black"
-                >
-                  <span className="text-xl">{icon}</span>
-                  <span className="text-sm font-bold uppercase tracking-wide">
-                    {item}{exclusive && '**'}
-                  </span>
-                </motion.div>
-              ))}
-            </motion.div>
-
-            {eventInfo.runnerKitNote && (
-              <motion.p {...fadeUp} className="text-center text-white font-bold text-xs mt-5">
-                {eventInfo.runnerKitNote}
-              </motion.p>
-            )}
-          </div>
         </div>
-      </section>
-      <SectionDivider color="#F72585" direction="up" height={60} />
-    </>
+      </div>
+    </section>
   );
 }

@@ -1,127 +1,118 @@
 import { motion } from 'framer-motion';
-import SectionDivider from './ui/SectionDivider';
-import FloatingDecorators from './ui/FloatingDecorators';
 import eventInfo from '../data/eventInfo.json';
 import links from '../data/links.json';
 
 const fadeUp = {
-  initial: { opacity: 0, y: 40 },
+  initial: { opacity: 0, y: 32 },
   whileInView: { opacity: 1, y: 0 },
   viewport: { once: true, margin: '-60px' },
-  transition: { duration: 0.45, ease: 'easeOut' },
+  transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] },
 };
 
 const staggerChild = {
-  initial: { opacity: 0, y: 30 },
+  initial: { opacity: 0, y: 24 },
   whileInView: { opacity: 1, y: 0 },
   viewport: { once: true },
   transition: { duration: 0.4 },
 };
 
 const distanceConfig = {
-  '5k': { bg: '#F72585', text: '#fff' },
-  '10k': { bg: '#009B9B', text: '#fff' },
+  '5k': { bg: 'linear-gradient(135deg, #F72585, #c31b6b)' },
+  '10k': { bg: 'linear-gradient(135deg, #009B9B, #076e6e)' },
 };
 
 export default function EventDetails() {
   return (
-    <>
-      <SectionDivider color="#FFD700" direction="down" height={60} />
-      <section
-        id="evento"
-        className="relative py-16 overflow-hidden"
-        style={{ background: '#FFD700' }}
-      >
-        <FloatingDecorators colors={['#F72585', '#009B9B', '#33B9E5', '#ffffff', '#F72585', '#009B9B', '#33B9E5', '#000']} />
+    <section
+      id="evento"
+      className="relative py-20 sm:py-28 overflow-hidden bg-gradient-to-b from-white to-[#f4f8fb]"
+    >
+      <div className="relative z-10 max-w-6xl mx-auto px-4">
 
-        <div className="relative z-10 max-w-6xl mx-auto px-4">
+        {/* Heading */}
+        <motion.div {...fadeUp} className="text-center mb-14">
+          <span className="eyebrow bg-ink/5 text-ink/70">El Evento</span>
+          <h2 className="font-display text-4xl sm:text-5xl md:text-6xl text-ink mb-4">
+            Elige tu distancia
+          </h2>
+          <p className="inline-flex flex-wrap items-center justify-center gap-x-2 gap-y-1 text-ink/60 font-medium text-sm sm:text-base">
+            <span className="font-bold text-ink">25 de Octubre 2026</span>
+            <span aria-hidden="true">·</span>
+            <span>{eventInfo.location.fullAddress}</span>
+          </p>
+        </motion.div>
 
-          {/* Heading */}
-          <motion.div {...fadeUp} className="text-center mb-12">
-            <span className="inline-block font-bold text-xs uppercase tracking-widest px-4 py-1 rounded-full border-3 border-black mb-4 bg-black text-white">
-              EL EVENTO
-            </span>
-            <h2 className="font-display text-4xl sm:text-5xl md:text-6xl text-black">
-              Elige tu distancia
-            </h2>
-          </motion.div>
-
-          {/* Date & Location banner — no start time */}
-          <motion.div
-            {...fadeUp}
-            className="neo-card-lg rounded-2xl p-6 sm:p-8 mb-10 flex items-center justify-center gap-4 text-center"
-            style={{ background: '#000', color: '#fff' }}
-          >
-            <div className="text-3xl">📅</div>
-            <div>
-              <p className="font-display text-2xl sm:text-3xl text-white">25 de Octubre 2026</p>
-              <p className="text-white/80 font-bold text-sm mt-1">Circuito Vía Deportiva, Monterrey</p>
-            </div>
-          </motion.div>
-
-          {/* Distance cards — centered, bigger badge, no emoji, no level */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ staggerChildren: 0.12 }}
-            className="grid sm:grid-cols-2 gap-6 mb-10"
-          >
-            {eventInfo.distances.map((d) => {
-              const cfg = distanceConfig[d.id] || { bg: '#F72585', text: '#fff' };
-              return (
-                <motion.div
-                  key={d.id}
-                  {...staggerChild}
-                  className="neo-card-lg rounded-2xl p-8 sm:p-10 flex flex-col items-center text-center gap-4 cursor-default transition-all duration-150 hover:-translate-y-2 hover:shadow-none active:-translate-y-2"
-                >
-                  {/* Big centered badge */}
-                  <span
-                    className="font-display text-6xl sm:text-7xl px-8 py-4 rounded-2xl border-3 border-black shadow-neo"
-                    style={{ background: cfg.bg, color: cfg.text }}
-                  >
-                    {d.name}
-                  </span>
-
-                  {/* SVG stroke animation */}
-                  <svg
-                    viewBox="0 0 80 40"
-                    className="w-20 h-10 opacity-25"
-                    fill="none"
-                    stroke="#000"
-                    strokeWidth="2.5"
-                    strokeLinecap="round"
-                  >
-                    <motion.path
-                      d="M10 35 Q20 10 35 20 Q50 30 65 8"
-                      initial={{ pathLength: 0 }}
-                      whileInView={{ pathLength: 1 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 1, delay: 0.3, ease: 'easeInOut' }}
-                    />
-                  </svg>
-
-                  <p className="text-gray-800 font-medium leading-relaxed">{d.description}</p>
-                </motion.div>
-              );
-            })}
-          </motion.div>
-
-          {/* Convocatoria oficial */}
-          <motion.div {...fadeUp} className="flex justify-center">
-            <a
-              href={links.convocatoria}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-display text-lg sm:text-xl text-white bg-black px-8 py-4 rounded-full border-3 border-black shadow-neo transition-all duration-150 hover:translate-x-1 hover:translate-y-1 hover:shadow-none active:translate-x-1 active:translate-y-1 active:shadow-none"
+        {/* Distance cards */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ staggerChildren: 0.12 }}
+          className="grid sm:grid-cols-2 gap-5 sm:gap-6 mb-8"
+        >
+          {eventInfo.distances.map((d) => (
+            <motion.div
+              key={d.id}
+              {...staggerChild}
+              className="card-hover rounded-3xl p-8 sm:p-10 flex flex-col items-center text-center gap-4 shadow-card"
             >
-              Descarga la convocatoria oficial aquí
-            </a>
-          </motion.div>
+              <span
+                className="font-display text-5xl sm:text-6xl text-white px-8 py-3 rounded-2xl"
+                style={{ background: (distanceConfig[d.id] || distanceConfig['5k']).bg }}
+              >
+                {d.name}
+              </span>
+              <p className="text-ink/65 font-medium leading-relaxed max-w-xs">{d.description}</p>
+            </motion.div>
+          ))}
+        </motion.div>
 
-        </div>
-      </section>
-      <SectionDivider color="#FFD700" direction="up" height={60} />
-    </>
+        {/* Convocatoria oficial */}
+        <motion.div {...fadeUp} className="flex justify-center mb-20">
+          <a
+            href={links.convocatoria}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-outline"
+          >
+            Descarga la convocatoria oficial →
+          </a>
+        </motion.div>
+
+        {/* Race day schedule */}
+        <motion.div {...fadeUp} className="text-center mb-10">
+          <span className="eyebrow bg-ink/5 text-ink/70">Día del evento</span>
+          <h3 className="font-display text-3xl sm:text-4xl text-ink">
+            Itinerario
+          </h3>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ staggerChildren: 0.06 }}
+          className="max-w-2xl mx-auto card-lg p-2 sm:p-3"
+        >
+          {eventInfo.schedule.map((item, i) => (
+            <motion.div
+              key={item.time}
+              {...staggerChild}
+              className={`flex items-center gap-4 sm:gap-6 px-4 sm:px-6 py-4 ${
+                i !== eventInfo.schedule.length - 1 ? 'border-b border-ink/[0.06]' : ''
+              }`}
+            >
+              <span className="font-display text-xl sm:text-2xl text-sky w-16 sm:w-20 shrink-0 text-right">
+                {item.time}
+              </span>
+              <span className="w-2 h-2 rounded-full bg-sky shrink-0" />
+              <span className="text-ink/80 font-medium text-sm sm:text-base leading-snug">
+                {item.activity}
+              </span>
+            </motion.div>
+          ))}
+        </motion.div>
+      </div>
+    </section>
   );
 }
