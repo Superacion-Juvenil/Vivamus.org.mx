@@ -41,19 +41,6 @@ export default function Hero() {
           Desde 2009 · 25 de Octubre 2026
         </motion.span>
 
-        {/* Logo */}
-        <motion.div
-          initial={{ scale: 0.92, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          transition={{ duration: 0.7, delay: 0.05, ease: [0.16, 1, 0.3, 1] }}
-        >
-          <img
-            src="/logo-vivamus.png"
-            alt="Carrera VIVAMUS Merco 2026"
-            className="w-[19rem] sm:w-[28rem] md:w-[34rem] h-auto block mx-auto drop-shadow-[0_12px_30px_rgba(0,0,0,0.25)]"
-          />
-        </motion.div>
-
         {/* Headline */}
         <motion.h1
           {...fadeUp(0.15)}
