@@ -66,11 +66,16 @@
     { "name": "Nescafé", "src": "/logo-nescafe.png" },
     { "name": "FUD Cuida-t+", "src": "/logo-fud.png" },
     { "name": "Gamesa", "src": "/logo-gamesa.png" },
+    { "name": "LALA", "src": "/logo-lala.png" },
+    { "name": "Mc Especias", "src": "/logo-mc-especias.png" },
     { "name": "Hogar", "src": "/logo-hogar.png" },
+    { "name": "Ensueño", "src": "/logo-ensueno.png" },
     { "name": "Bafar", "src": "/logo-bafar.png" },
     { "name": "Dolores", "src": "/logo-dolores.png" },
     { "name": "Kellogg's", "src": "/logo-kellogs.png" },
     { "name": "Volt", "src": "/logo-volt.png" },
-    { "name": "Pinturas Osel", "src": "/logo-osel.png" }
+    { "name": "Pinturas Osel", "src": "/logo-osel.png" },
+    { "name": "Peñafiel", "src": "/logo-penafiel.png" },
+    { "name": "Boing", "src": "/logo-boing.png" }
   ]
 }
