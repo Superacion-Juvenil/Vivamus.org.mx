@@ -56,7 +56,7 @@ export default function Sponsors() {
               <img
                 src={logo.src}
                 alt={logo.name}
-                className="max-h-20 max-w-[80%] object-contain"
+                className="max-h-[120px] max-w-[80%] object-contain"
               />
             </motion.div>
           ))}
