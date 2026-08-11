@@ -40,15 +40,15 @@ export default function Hero() {
         {/* Tagline — smaller than the date */}
         <motion.p
           {...fadeUp(0.3)}
-          className="font-display text-xl sm:text-2xl text-white leading-tight max-w-xl"
+          className="font-display text-3xl sm:text-4xl text-white leading-tight max-w-xl"
           style={{ textShadow: '2px 2px 0 #000' }}
         >
-          ¡Corre en Familia!
+          ¡Vive la Experiencia!
         </motion.p>
 
         {/* Date badge — larger, prominent */}
         <motion.div {...fadeUp(0.45)}>
-          <span className="inline-block bg-black text-white font-bold px-6 py-3 rounded-full text-base sm:text-xl border-3 border-black">
+          <span className="inline-block bg-black text-white font-bold px-9 py-[1.125rem] rounded-full text-2xl sm:text-3xl border-[4.5px] border-black">
             📍 25 de Octubre 2026 · Circuito Vía Deportiva, Monterrey
           </span>
         </motion.div>
