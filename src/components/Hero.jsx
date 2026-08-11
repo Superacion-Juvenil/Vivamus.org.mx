@@ -11,6 +11,10 @@ const fadeUp = (delay = 0) => ({
 });
 
 export default function Hero() {
+  const scrollTo = (id) => {
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <section
       id="inicio"
@@ -90,14 +94,12 @@ export default function Hero() {
           >
             ¡Inscríbete ahora!
           </a>
-          <a
-            href={links.convocatoria}
-            target="_blank"
-            rel="noopener noreferrer"
+          <button
+            onClick={() => scrollTo('evento')}
             className="font-bold text-2xl sm:text-[1.6875rem] text-black px-12 py-[1.125rem] rounded-full border-[4.5px] border-black bg-white shadow-neo transition-all duration-150 hover:translate-x-1 hover:translate-y-1 hover:shadow-none active:translate-x-1 active:translate-y-1 active:shadow-none"
           >
-            Descarga la convocatoria ↓
-          </a>
+            Conoce más ↓
+          </button>
         </motion.div>
       </div>
     </section>
