@@ -113,7 +113,7 @@ export default function EventDetails() {
               href={links.convocatoria}
               target="_blank"
               rel="noopener noreferrer"
-              className="font-display text-lg sm:text-xl text-white bg-black px-8 py-4 rounded-full border-3 border-black shadow-neo transition-all duration-150 hover:translate-x-1 hover:translate-y-1 hover:shadow-none active:translate-x-1 active:translate-y-1 active:shadow-none"
+              className="font-display text-[1.6875rem] sm:text-3xl text-white bg-black px-12 py-6 rounded-full border-[4.5px] border-black shadow-neo transition-all duration-150 hover:translate-x-1 hover:translate-y-1 hover:shadow-none active:translate-x-1 active:translate-y-1 active:shadow-none"
             >
               Descarga la convocatoria oficial aquí
             </a>

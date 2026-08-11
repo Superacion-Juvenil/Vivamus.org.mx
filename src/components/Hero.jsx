@@ -40,15 +40,15 @@ export default function Hero() {
         {/* Tagline — smaller than the date */}
         <motion.p
           {...fadeUp(0.3)}
-          className="font-display text-xl sm:text-2xl text-white leading-tight max-w-xl"
+          className="font-bold text-[2.8125rem] sm:text-[3.375rem] text-white leading-tight max-w-xl"
           style={{ textShadow: '2px 2px 0 #000' }}
         >
-          ¡Corre en Familia!
+          ¡Vive la Experiencia!
         </motion.p>
 
         {/* Date badge — larger, prominent */}
         <motion.div {...fadeUp(0.45)}>
-          <span className="inline-block bg-black text-white font-bold px-6 py-3 rounded-full text-base sm:text-xl border-3 border-black">
+          <span className="inline-block bg-black text-white font-bold px-9 py-[1.125rem] rounded-full text-2xl sm:text-3xl border-[4.5px] border-black">
             📍 25 de Octubre 2026 · Circuito Vía Deportiva, Monterrey
           </span>
         </motion.div>
@@ -89,14 +89,14 @@ export default function Hero() {
             href={links.registration}
             target="_blank"
             rel="noopener noreferrer"
-            className="font-display text-lg sm:text-xl text-white px-8 py-3 rounded-full border-3 border-black shadow-neo transition-all duration-150 hover:translate-x-1 hover:translate-y-1 hover:shadow-none active:translate-x-1 active:translate-y-1 active:shadow-none pulse-badge"
+            className="font-display text-[1.6875rem] sm:text-3xl text-white px-12 py-[1.125rem] rounded-full border-[4.5px] border-black shadow-neo transition-all duration-150 hover:translate-x-1 hover:translate-y-1 hover:shadow-none active:translate-x-1 active:translate-y-1 active:shadow-none pulse-badge"
             style={{ background: '#F72585' }}
           >
             ¡Inscríbete ahora!
           </a>
           <button
             onClick={() => scrollTo('evento')}
-            className="font-bold text-base sm:text-lg text-black px-8 py-3 rounded-full border-3 border-black bg-white shadow-neo transition-all duration-150 hover:translate-x-1 hover:translate-y-1 hover:shadow-none active:translate-x-1 active:translate-y-1 active:shadow-none"
+            className="font-bold text-2xl sm:text-[1.6875rem] text-black px-12 py-[1.125rem] rounded-full border-[4.5px] border-black bg-white shadow-neo transition-all duration-150 hover:translate-x-1 hover:translate-y-1 hover:shadow-none active:translate-x-1 active:translate-y-1 active:shadow-none"
           >
             Conoce más ↓
           </button>
