@@ -40,7 +40,7 @@ export default function Hero() {
         {/* Tagline — smaller than the date */}
         <motion.p
           {...fadeUp(0.3)}
-          className="font-display text-3xl sm:text-4xl text-white leading-tight max-w-xl"
+          className="font-bold text-[2.8125rem] sm:text-[3.375rem] text-white leading-tight max-w-xl"
           style={{ textShadow: '2px 2px 0 #000' }}
         >
           ¡Vive la Experiencia!
