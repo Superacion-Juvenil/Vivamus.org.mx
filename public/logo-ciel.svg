@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 110" width="320" height="110">
+  <ellipse cx="160" cy="55" rx="150" ry="50" fill="#0099e6"/>
+  <circle cx="235" cy="22" r="9" fill="#ffffff"/>
+  <text x="160" y="62" font-family="Arial, Helvetica, sans-serif" font-weight="800" font-style="italic" font-size="40" fill="#ffffff" text-anchor="middle">ciel</text>
+  <text x="160" y="86" font-family="Arial, Helvetica, sans-serif" font-weight="600" font-size="14" fill="#ffffff" text-anchor="middle" letter-spacing="1">purificada</text>
+</svg>
