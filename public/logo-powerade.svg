@@ -1,3 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 90" width="320" height="90">
-  <text x="10" y="60" font-family="Arial, Helvetica, sans-serif" font-weight="900" font-style="italic" font-size="46" fill="#111111">POWER<tspan fill="#e2231a">ADE</tspan><tspan fill="#e2231a" font-size="34">.</tspan></text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 160" width="280" height="160">
+  <text x="0" y="68" font-family="Arial, Helvetica, sans-serif" font-weight="900" font-style="italic" font-size="66" letter-spacing="-2" fill="#000000">POWER</text>
+  <text x="0" y="140" font-family="Arial, Helvetica, sans-serif" font-weight="900" font-style="italic" font-size="66" letter-spacing="-2" fill="#000000">ADE</text>
+  <text x="260" y="140" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="14" fill="#000000">TM</text>
 </svg>

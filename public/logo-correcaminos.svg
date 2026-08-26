@@ -1,5 +1,36 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 100" width="360" height="100">
-  <text x="0" y="46" font-family="Arial, Helvetica, sans-serif" font-weight="800" font-size="26" fill="#111111" letter-spacing="0.5">CLUB CORRECAMINOS</text>
-  <text x="0" y="70" font-family="Arial, Helvetica, sans-serif" font-weight="600" font-size="16" fill="#555555" letter-spacing="2">MONTERREY MX</text>
-  <line x1="0" y1="82" x2="360" y2="82" stroke="#111111" stroke-width="3"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 200" width="360" height="200">
+  <g fill="#3a3a3a">
+    <!-- tail feathers -->
+    <polygon points="90,95 15,55 55,92"/>
+    <polygon points="90,95 20,80 58,100"/>
+    <polygon points="90,95 25,102 60,108"/>
+
+    <!-- body -->
+    <ellipse cx="150" cy="92" rx="55" ry="24"/>
+
+    <!-- neck -->
+    <polygon points="192,78 245,42 250,60 205,98"/>
+
+    <!-- head -->
+    <circle cx="255" cy="40" r="16"/>
+
+    <!-- crest -->
+    <polygon points="248,10 258,26 240,24"/>
+    <polygon points="258,6 266,24 250,22"/>
+    <polygon points="268,10 274,26 260,24"/>
+
+    <!-- beak -->
+    <polygon points="268,36 300,30 268,48"/>
+
+    <!-- legs -->
+    <polygon points="165,108 158,150 148,150 158,108"/>
+    <polygon points="140,110 128,155 118,155 132,110"/>
+
+    <!-- feet -->
+    <polygon points="148,150 165,150 160,158 148,158"/>
+    <polygon points="118,155 138,155 132,163 118,163"/>
+  </g>
+
+  <text x="0" y="180" font-family="Arial, Helvetica, sans-serif" font-weight="800" font-size="26" fill="#3a3a3a" letter-spacing="0.5">CLUB CORRECAMINOS</text>
+  <text x="0" y="198" font-family="Arial, Helvetica, sans-serif" font-weight="600" font-size="14" fill="#3a3a3a" letter-spacing="2">MONTERREY MX</text>
 </svg>
