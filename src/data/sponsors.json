@@ -70,12 +70,15 @@
     { "name": "Mc Especias", "src": "/logo-mc-especias.png" },
     { "name": "Hogar", "src": "/logo-hogar.png" },
     { "name": "Ensueño", "src": "/logo-ensueno.png" },
+    { "name": "Powerade", "src": "/logo-powerade.png" },
+    { "name": "Ciel", "src": "/logo-ciel.png" },
     { "name": "Bafar", "src": "/logo-bafar.png" },
     { "name": "Dolores", "src": "/logo-dolores.png" },
     { "name": "Kellogg's", "src": "/logo-kellogs.png" },
     { "name": "Volt", "src": "/logo-volt.png" },
     { "name": "Pinturas Osel", "src": "/logo-osel.png" },
     { "name": "Peñafiel", "src": "/logo-penafiel.png" },
-    { "name": "Boing", "src": "/logo-boing.png" }
+    { "name": "Boing", "src": "/logo-boing.png" },
+    { "name": "Club Correcaminos Monterrey MX", "src": "/logo-correcaminos.png" }
   ]
 }
