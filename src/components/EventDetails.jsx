@@ -69,11 +69,18 @@ export default function EventDetails() {
           >
             {eventInfo.distances.map((d) => {
               const cfg = distanceConfig[d.id] || { bg: '#F72585', text: '#fff' };
+              const Card = d.href ? motion.a : motion.div;
+              const linkProps = d.href
+                ? { href: d.href, target: '_blank', rel: 'noopener noreferrer' }
+                : {};
               return (
-                <motion.div
+                <Card
                   key={d.id}
                   {...staggerChild}
-                  className="neo-card-lg rounded-2xl p-8 sm:p-10 flex flex-col items-center text-center gap-4 cursor-default transition-all duration-150 hover:-translate-y-2 hover:shadow-none active:-translate-y-2"
+                  {...linkProps}
+                  className={`neo-card-lg rounded-2xl p-8 sm:p-10 flex flex-col items-center text-center gap-4 transition-all duration-150 hover:-translate-y-2 hover:shadow-none active:-translate-y-2 ${
+                    d.href ? 'cursor-pointer' : 'cursor-default'
+                  }`}
                 >
                   {/* Big centered badge */}
                   <span
@@ -102,7 +109,7 @@ export default function EventDetails() {
                   </svg>
 
                   <p className="text-gray-800 font-medium leading-relaxed">{d.description}</p>
-                </motion.div>
+                </Card>
               );
             })}
           </motion.div>
