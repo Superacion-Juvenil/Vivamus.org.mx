@@ -79,6 +79,7 @@
     { "name": "Pinturas Osel", "src": "/logo-osel.png" },
     { "name": "Peñafiel", "src": "/logo-penafiel.png" },
     { "name": "Boing", "src": "/logo-boing.png" },
-    { "name": "Club Correcaminos Monterrey MX", "src": "/logo-correcaminos.png" }
+    { "name": "Club Correcaminos Monterrey MX", "src": "/logo-correcaminos.png" },
+    { "name": "Contextia", "src": "/logo-contextia.png" }
   ]
 }
