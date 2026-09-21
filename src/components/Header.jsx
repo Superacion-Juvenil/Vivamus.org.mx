@@ -3,11 +3,12 @@ import { motion, AnimatePresence } from 'framer-motion';
 import links from '../data/links.json';
 
 const navLinks = [
-  { id: 'inicio', label: 'Inicio' },
-  { id: 'nosotros', label: 'Nosotros' },
-  { id: 'evento', label: 'El Evento' },
-  { id: 'inscripciones', label: 'Inscripciones' },
-  { id: 'patrocinadores', label: 'Patrocinadores' },
+  { id: 'inicio', label: 'INICIO' },
+  { id: 'nosotros', label: 'NOSOTROS' },
+  { id: 'evento', label: 'EL EVENTO' },
+  { id: 'inscripciones', label: 'INSCRIPCIONES' },
+  { id: 'ruta', label: 'RUTA' },
+  { id: 'patrocinadores', label: 'PATROCINADORES' },
 ];
 
 export default function Header() {
@@ -62,7 +63,7 @@ export default function Header() {
             className="ml-3 px-5 py-2 rounded-full text-sm font-bold text-white border-3 border-black shadow-neo transition-all duration-150 hover:translate-x-1 hover:translate-y-1 hover:shadow-none"
             style={{ background: '#F72585' }}
           >
-            ¡Inscríbete!
+            ¡INSCRÍBETE!
           </a>
         </nav>
 
@@ -127,7 +128,7 @@ export default function Header() {
                 className="mt-2 px-4 py-3 rounded-xl font-bold text-white text-base border-3 border-black shadow-neo text-center transition-all duration-150 active:translate-x-1 active:translate-y-1 active:shadow-none"
                 style={{ background: '#F72585' }}
               >
-                ¡Inscríbete ahora!
+                ¡INSCRÍBETE AHORA!
               </motion.a>
             </div>
           </motion.nav>
