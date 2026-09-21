@@ -23,7 +23,8 @@
       "id": "10k",
       "name": "10K",
       "description": "El reto intermedio. Para quienes quieren superarse y sentir la adrenalina.",
-      "color": "teal"
+      "color": "teal",
+      "href": "https://www.asdeporte.com/evento/carrera-vivamus-merco-asv/datos-del-evento"
     }
   ],
   "modalities": ["Presencial"],
