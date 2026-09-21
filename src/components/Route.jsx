@@ -11,7 +11,7 @@ const fadeUp = {
 };
 
 export default function Route() {
-  const { map } = route;
+  const { start, map } = route;
 
   return (
     <>
@@ -33,6 +33,29 @@ export default function Route() {
             <h2 className="font-display text-4xl sm:text-5xl md:text-6xl text-white text-shadow-neo">
               {route.title}
             </h2>
+          </motion.div>
+
+          {/* Salida y horarios */}
+          <motion.div
+            {...fadeUp}
+            className="neo-card-lg rounded-2xl bg-white p-6 sm:p-8 text-center mb-8"
+          >
+            <span className="inline-block font-bold text-xs uppercase tracking-widest px-4 py-1 rounded-full border-3 border-black mb-4 bg-black text-white">
+              {start.label}
+            </span>
+            <p className="font-display text-2xl sm:text-3xl text-black leading-tight mb-6">
+              {start.place}
+            </p>
+            <div className="flex flex-wrap justify-center gap-3 sm:gap-4">
+              {start.times.map(({ id, name, time }) => (
+                <span
+                  key={id}
+                  className="font-display text-xl sm:text-2xl text-white bg-black px-6 py-2 rounded-full border-3 border-black"
+                >
+                  {name} — {time}
+                </span>
+              ))}
+            </div>
           </motion.div>
 
           {/* Mapa del recorrido — se abre en grande al tocarlo */}

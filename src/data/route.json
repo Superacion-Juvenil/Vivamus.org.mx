@@ -1,6 +1,14 @@
 {
   "badge": "EL RECORRIDO",
   "title": "LA RUTA",
+  "start": {
+    "label": "SALIDA",
+    "place": "Calle Ignacio Zaragoza, Plaza Zaragoza Centro, Monterrey",
+    "times": [
+      { "id": "10k", "name": "10K", "time": "7:00 AM" },
+      { "id": "5k", "name": "5K", "time": "7:20 AM" }
+    ]
+  },
   "map": {
     "src": "/ruta-vivamus-merco-2026.webp",
     "alt": "Mapa de la ruta 5K y 10K de la Carrera Vivamus-Merco 2026, con salida y meta en el centro de Monterrey.",
