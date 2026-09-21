@@ -6,6 +6,7 @@ import Hero from './components/Hero';
 import About from './components/About';
 import EventDetails from './components/EventDetails';
 import Registration from './components/Registration';
+import Route from './components/Route';
 import Sponsors from './components/Sponsors';
 import Contact from './components/Contact';
 
@@ -18,6 +19,7 @@ function App() {
         <About />
         <EventDetails />
         <Registration />
+        <Route />
         <Sponsors />
         <Contact />
       </main>
