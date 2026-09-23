@@ -62,19 +62,19 @@ export default function Sponsors() {
           ))}
         </motion.div>
 
-        {/* Demás patrocinadores — cuadrícula en el orden indicado */}
+        {/* Demás patrocinadores (a partir de Nutri) — 5 por línea en escritorio, última fila centrada */}
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ staggerChildren: 0.1 }}
-          className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 items-center gap-x-8 gap-y-10 mb-12"
+          className="flex flex-wrap justify-center items-center gap-y-10 mb-12"
         >
           {sponsors.logos.slice(3).map((logo) => (
             <motion.div
               key={logo.name}
               {...staggerChild}
-              className="flex items-center justify-center"
+              className="flex items-center justify-center w-1/2 sm:w-1/3 md:w-1/5 px-4"
             >
               <img
                 src={logo.src}
