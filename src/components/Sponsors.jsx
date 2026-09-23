@@ -68,7 +68,7 @@ export default function Sponsors() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ staggerChildren: 0.1 }}
-          className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 items-center gap-x-8 gap-y-10 mb-12"
+          className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 items-center gap-x-8 gap-y-10 mb-12"
         >
           {sponsors.logos.slice(3).map((logo) => (
             <motion.div
