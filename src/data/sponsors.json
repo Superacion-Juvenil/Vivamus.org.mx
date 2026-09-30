@@ -83,6 +83,7 @@
     { "name": "Contextia", "src": "/logo-contextia.png" },
     { "name": "Fundación Chivis by Plato Express", "src": "/logo-plato-express.png" },
     { "name": "Sigma Alimentos", "src": "/logo-sigma.png" },
+    { "name": "Parroquia Universitaria San Juan Bosco", "src": "/logo-bosco.png", "scale": 1.2 },
     { "name": "Club Correcaminos Monterrey MX", "src": "/logo-correcaminos.png" }
   ]
 }
