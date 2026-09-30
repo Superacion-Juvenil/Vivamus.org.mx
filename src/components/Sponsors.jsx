@@ -80,6 +80,7 @@ export default function Sponsors() {
                 src={logo.src}
                 alt={logo.name}
                 className="max-h-20 max-w-[80%] object-contain"
+                style={logo.scale ? { transform: `scale(${logo.scale})` } : undefined}
               />
             </motion.div>
           ))}
