@@ -62,7 +62,7 @@ export default function Sponsors() {
           ))}
         </motion.div>
 
-        {/* Demás patrocinadores (a partir de Nutri) — 5 por línea en escritorio, última fila centrada */}
+        {/* Demás patrocinadores (a partir de Nutri) — 5 por línea en escritorio; Correcaminos y San Juan Bosco quedan solos en la última fila */}
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
